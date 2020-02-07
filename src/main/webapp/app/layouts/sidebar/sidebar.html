@@ -48,100 +48,160 @@
                     </a>
                 </li>-->
 
+            </ul>
 
-                <li ui-sref-active="active">
-                    <a ui-sref="cinema" ng-click="vm.collapseNavbar()">
-                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                        <span data-translate="global.menu.entities.cinema">Cinema</span>
+            <ul class="nav side-menu">
+                <li ng-class="{active: vm.$state.includes('admin')
+                         || vm.$state.includes('user-management')
+                         || vm.$state.includes('pgw-role-app')
+                         || vm.$state.includes('entity-audit')}"
+                    ng-switch-when="true"
+                    has-any-authority="ROLE_ADMIN,ROLE_USER" class="pointer">
+                    <a ng-click="vm.menuClick($event)" id="admin-menu-projection">
+                        <span><i class="fa fa-user-secret"></i> <span class="hidden-sm" data-translate="global.menu.entities.projection">Projection</span>
+                        <span class="fa fa-chevron-down"></span></span>
                     </a>
+                    <ul class="nav child_menu"
+                        ng-class="{showMenuChild: vm.$state.includes('admin')
+                         || vm.$state.includes('user-management')
+                         || vm.$state.includes('pgw-role-app')
+                         || vm.$state.includes('entity-audit')}">
+                        <li ui-sref-active="active">
+                            <a ui-sref="projection" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.projection">Projection</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="seance" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.seance">Seance</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="prix-ticket" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.prixTicket">Prix Ticket</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="salle" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.salle">Salle</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="cinema" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.cinema">Cinema</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="ville" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.ville">Ville</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="pays" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.pays">Pays</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="adresse" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.adresse">Adresse</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li ui-sref-active="active">
-                    <a ui-sref="ville" ng-click="vm.collapseNavbar()">
-                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                        <span data-translate="global.menu.entities.ville">Ville</span>
+            </ul>
+            <ul class="nav side-menu">
+                <li ng-class="{active: vm.$state.includes('admin')
+                         || vm.$state.includes('user-management')
+                         || vm.$state.includes('pgw-role-app')
+                         || vm.$state.includes('entity-audit')}"
+                    ng-switch-when="true"
+                    has-any-authority="ROLE_ADMIN,ROLE_USER" class="pointer">
+                    <a ng-click="vm.menuClick($event)" id="admin-menu-film">
+                        <span><i class="fa fa-user-secret"></i> <span class="hidden-sm" data-translate="global.menu.entities.film">Film</span>
+                        <span class="fa fa-chevron-down"></span></span>
                     </a>
+                    <ul class="nav child_menu"
+                        ng-class="{showMenuChild: vm.$state.includes('admin')
+                         || vm.$state.includes('user-management')
+                         || vm.$state.includes('pgw-role-app')
+                         || vm.$state.includes('entity-audit')}">
+
+                        <li ui-sref-active="active">
+                            <a ui-sref="film" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.film">Film</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="categorie-film" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.categorieFilm">Categorie Film</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li ui-sref-active="active">
-                    <a ui-sref="pays" ng-click="vm.collapseNavbar()">
-                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                        <span data-translate="global.menu.entities.pays">Pays</span>
+            </ul>
+
+            <ul class="nav side-menu">
+                <li ng-class="{active: vm.$state.includes('admin')
+                         || vm.$state.includes('user-management')
+                         || vm.$state.includes('pgw-role-app')
+                         || vm.$state.includes('entity-audit')}"
+                    ng-switch-when="true"
+                    has-any-authority="ROLE_ADMIN,ROLE_USER" class="pointer">
+                    <a ng-click="vm.menuClick($event)" id="admin-menu-reservation"> <span>
+							<i class="fa fa-user-secret"></i> <span class="hidden-sm"
+                                                                    data-translate="global.menu.entities.reservation">Réservations</span> <span
+                        class="fa fa-chevron-down"></span>
+					</span>
                     </a>
+                    <ul class="nav child_menu"
+                        ng-class="{showMenuChild: vm.$state.includes('admin')
+                         || vm.$state.includes('user-management')
+                         || vm.$state.includes('pgw-role-app')
+                         || vm.$state.includes('entity-audit')}">
+                        <li ui-sref-active="active">
+                            <a ui-sref="ticket" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.ticket">Ticket</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="reservation" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.reservation">Reservation</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="client" ng-click="vm.collapseNavbar()">
+                                <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                                <span data-translate="global.menu.entities.client">Client</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li ui-sref-active="active">
-                    <a ui-sref="salle" ng-click="vm.collapseNavbar()">
-                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                        <span data-translate="global.menu.entities.salle">Salle</span>
-                    </a>
-                </li>
-                <li ui-sref-active="active">
-                    <a ui-sref="adresse" ng-click="vm.collapseNavbar()">
-                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                        <span data-translate="global.menu.entities.adresse">Adresse</span>
-                    </a>
-                </li>
-                <li ui-sref-active="active">
-                    <a ui-sref="film" ng-click="vm.collapseNavbar()">
-                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                        <span data-translate="global.menu.entities.film">Film</span>
-                    </a>
-                </li>
-                <li ui-sref-active="active">
-                    <a ui-sref="categorie-film" ng-click="vm.collapseNavbar()">
-                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                        <span data-translate="global.menu.entities.categorieFilm">Categorie Film</span>
-                    </a>
-                </li>
-                <li ui-sref-active="active">
-                    <a ui-sref="seance" ng-click="vm.collapseNavbar()">
-                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                        <span data-translate="global.menu.entities.seance">Seance</span>
-                    </a>
-                </li>
-                <li ui-sref-active="active">
-                    <a ui-sref="client" ng-click="vm.collapseNavbar()">
-                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                        <span data-translate="global.menu.entities.client">Client</span>
-                    </a>
-                </li>
-                <li ui-sref-active="active">
-                    <a ui-sref="projection" ng-click="vm.collapseNavbar()">
-                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                        <span data-translate="global.menu.entities.projection">Projection</span>
-                    </a>
-                </li>
-                <li ui-sref-active="active">
-                    <a ui-sref="prix-ticket" ng-click="vm.collapseNavbar()">
-                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                        <span data-translate="global.menu.entities.prixTicket">Prix Ticket</span>
-                    </a>
-                </li>
-                <li ui-sref-active="active">
-                    <a ui-sref="ticket" ng-click="vm.collapseNavbar()">
-                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                        <span data-translate="global.menu.entities.ticket">Ticket</span>
-                    </a>
-                </li>
-                <li ui-sref-active="active">
-                    <a ui-sref="reservation" ng-click="vm.collapseNavbar()">
-                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
-                        <span data-translate="global.menu.entities.reservation">Reservation</span>
-                    </a>
-                </li>
+            </ul>
+        </div>
+
+
+        <div class="menu_section"
+             has-any-authority="ROLE_ADMIN, ROLE_USER">
+            <h3>Configuration</h3>
+            <ul class="nav side-menu">
                 <li ui-sref-active="active">
                     <a ui-sref="formule" ng-click="vm.collapseNavbar()">
                         <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                         <span data-translate="global.menu.entities.formule">Formule</span>
                     </a>
                 </li>
-
-
-            </ul>
-        </div>
-
-        <div class="menu_section"
-             has-any-authority="ROLE_ADMIN,ACT_PACKAGE,ACT_MODE_PAIEMENT,ACT_SERVICE_PAIEMENT,ACT_COMPTE,ACT_RETROCOMMISSION_CONFIG,ACT_USERS,ACT_ENTITY_AUDITS,ACT_AUDITS,ACT_LOG,ACT_API,ACT_SECTEUR_ACTIVITE,ACT_CONF,ACT_METRICS,ACT_DIAGS">
-            <h3>Configuration</h3>
-            <ul class="nav side-menu">
                <li ng-class="{active: vm.$state.includes('admin')
                          || vm.$state.includes('user-management')
                          || vm.$state.includes('pgw-role-app')
