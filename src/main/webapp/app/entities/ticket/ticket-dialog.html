@@ -1,0 +1,89 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTicketLabel" data-translate="cineclubApp.ticket.home.createOrEditLabel">Create or edit a Ticket</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.ticket.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.ticket.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.ticket.codePaiement" for="field_codePaiement">Code Paiement</label>
+            <input type="text" class="form-control" name="codePaiement" id="field_codePaiement"
+                    ng-model="vm.ticket.codePaiement"
+                    required/>
+            <div ng-show="editForm.codePaiement.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.codePaiement.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.ticket.numeroPlace" for="field_numeroPlace">Numero Place</label>
+            <input type="text" class="form-control" name="numeroPlace" id="field_numeroPlace"
+                    ng-model="vm.ticket.numeroPlace"
+                    required/>
+            <div ng-show="editForm.numeroPlace.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.numeroPlace.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.ticket.prix" for="field_prix">Prix</label>
+            <input type="number" class="form-control" name="prix" id="field_prix"
+                    ng-model="vm.ticket.prix"
+                    required/>
+            <div ng-show="editForm.prix.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.prix.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.prix.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.ticket.statutTicket" for="field_statutTicket">Statut Ticket</label>
+                <input type="checkbox" name="statutTicket" id="field_statutTicket"
+                          ng-model="vm.ticket.statutTicket"/>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="cineclubApp.ticket.prixTicket" for="field_prixTicket">Prix Ticket</label>
+            <select class="form-control" id="field_prixTicket" name="prixTicket" ng-model="vm.ticket.prixTicketId" ng-options="prixTicket.id as prixTicket.id for prixTicket in vm.prixtickets"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="cineclubApp.ticket.projection" for="field_projection">Projection</label>
+            <select class="form-control" id="field_projection" name="projection" ng-model="vm.ticket.projectionId" ng-options="projection.id as projection.id for projection in vm.projections"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="cineclubApp.ticket.reservation" for="field_reservation">Reservation</label>
+            <select class="form-control" id="field_reservation" name="reservation" ng-model="vm.ticket.reservationId" ng-options="reservation.id as reservation.id for reservation in vm.reservations"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

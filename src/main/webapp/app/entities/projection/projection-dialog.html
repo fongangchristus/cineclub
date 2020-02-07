@@ -1,0 +1,87 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProjectionLabel" data-translate="cineclubApp.projection.home.createOrEditLabel">Create or edit a Projection</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.projection.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.projection.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.projection.libele" for="field_libele">Libele</label>
+            <input type="text" class="form-control" name="libele" id="field_libele"
+                    ng-model="vm.projection.libele"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.projection.duree" for="field_duree">Duree</label>
+            <input type="text" class="form-control" name="duree" id="field_duree"
+                    ng-model="vm.projection.duree"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.projection.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                    ng-model="vm.projection.code"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.projection.jour" for="field_jour">Jour</label>
+            <select class="form-control" name="jour" ng-model="vm.projection.jour" id="field_jour">
+                <option value="LUNDI" data-translate="cineclubApp.Jour.LUNDI">LUNDI</option>
+                <option value="MARDI" data-translate="cineclubApp.Jour.MARDI">MARDI</option>
+                <option value="MERCREDI" data-translate="cineclubApp.Jour.MERCREDI">MERCREDI</option>
+                <option value="JEUDI" data-translate="cineclubApp.Jour.JEUDI">JEUDI</option>
+                <option value="VENDREDI" data-translate="cineclubApp.Jour.VENDREDI">VENDREDI</option>
+                <option value="SAMEDI" data-translate="cineclubApp.Jour.SAMEDI">SAMEDI</option>
+                <option value="DIMANCHE" data-translate="cineclubApp.Jour.DIMANCHE">DIMANCHE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.projection.typeProjection" for="field_typeProjection">Type Projection</label>
+            <select class="form-control" name="typeProjection" ng-model="vm.projection.typeProjection" id="field_typeProjection">
+                <option value="AVANT_PREMIERE" data-translate="cineclubApp.TypeProjection.AVANT_PREMIERE">AVANT_PREMIERE</option>
+                <option value="CLASSIQUE" data-translate="cineclubApp.TypeProjection.CLASSIQUE">CLASSIQUE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.projection.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.projection.description"
+                    />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="cineclubApp.projection.film" for="field_film">Film</label>
+            <select class="form-control" id="field_film" name="film" ng-model="vm.projection.filmId" ng-options="film.id as film.id for film in vm.films"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="cineclubApp.projection.plageHoraire" for="field_plageHoraire">Plage Horaire</label>
+            <select class="form-control" id="field_plageHoraire" name="plageHoraire" ng-model="vm.projection.plageHoraireId" ng-options="seance.id as seance.id for seance in vm.seances"            >
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label data-translate="cineclubApp.projection.salle" for="field_salle">Salle</label>
+            <select class="form-control" id="field_salle" name="salle" ng-model="vm.projection.salleId" ng-options="salle.id as salle.id for salle in vm.salles"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

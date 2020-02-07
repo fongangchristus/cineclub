@@ -1,0 +1,28 @@
+
+{
+    "cineclubApp": {
+        "adresse" : {
+            "home": {
+                "title": "Adresses",
+                "createLabel": "Créer un nouveau Adresse",
+                "createOrEditLabel": "Créer ou éditer un Adresse"
+            },
+            "created": "Un nouveau Adresse a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Adresse avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Adresse avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Adresse {{ id }} ?"
+            },
+            "detail": {
+                "title": "Adresse"
+            },
+            "telephone1": "Telephone 1",
+            "telephone2": "Telephone 2",
+            "adresse": "Adresse",
+            "email": "Email",
+            "description": "Description",
+            "latitude": "Latitude",
+            "longitude": "Longitude"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Projection.
+    -->
+    <changeSet id="20200207103010-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="film_id"
+                                 baseTableName="projection"
+                                 constraintName="fk_projection_film_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="film"/>
+
+        <addForeignKeyConstraint baseColumnNames="plage_horaire_id"
+                                 baseTableName="projection"
+                                 constraintName="fk_projection_plage_horaire_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="seance"/>
+
+        <addForeignKeyConstraint baseColumnNames="salle_id"
+                                 baseTableName="projection"
+                                 constraintName="fk_projection_salle_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="salle"/>
+
+    </changeSet>
+</databaseChangeLog>

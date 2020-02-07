@@ -28,7 +28,7 @@
             var entityName = "";
             if(data)
                 entityName = data.entityName ? "- " + data.entityName : "";
-            toaster.pop('error', "Payment Gateway " + entityName, key.substring(6) + "", 5000, 'trustedHtml');
+            toaster.pop('error', "Ciné-club " + entityName, key.substring(6) + "", 5000, 'trustedHtml');
             /*vm.alerts.push(
                 AlertService.add(
                     {

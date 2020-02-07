@@ -1,0 +1,28 @@
+
+{
+    "cineclubApp": {
+        "reservation" : {
+            "home": {
+                "title": "Reservations",
+                "createLabel": "Create a new Reservation",
+                "createOrEditLabel": "Create or edit a Reservation"
+            },
+            "created": "A new Reservation is created with identifier {{ param }}",
+            "updated": "A Reservation is updated with identifier {{ param }}",
+            "deleted": "A Reservation is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Reservation {{ id }}?"
+            },
+            "detail": {
+                "title": "Reservation"
+            },
+            "nomClient": "Nom Client",
+            "dateReservation": "Date Reservation",
+            "quantite": "Quantite",
+            "prixToTale": "Prix To Tale",
+            "statutReservation": "Statut Reservation",
+            "listTicket": "List Ticket",
+            "client": "Client"
+        }
+    }
+}

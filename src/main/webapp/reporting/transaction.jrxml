@@ -14,7 +14,7 @@
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Payment Gateway]]></text>
+				<text><![CDATA[Ciné-club]]></text>
 			</staticText>
 			<image hAlign="Center" vAlign="Middle">
 				<reportElement isPrintRepeatedValues="false" x="302" y="0" width="208" height="55" uuid="675b545c-48da-4bd8-afb6-df680f367bd8"/>

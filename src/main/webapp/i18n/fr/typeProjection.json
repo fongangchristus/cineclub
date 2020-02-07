@@ -1,0 +1,9 @@
+{
+    "cineclubApp": {
+        "TypeProjection" : {
+            "null": "",
+            "AVANT_PREMIERE": "AVANT_PREMIERE",
+            "CLASSIQUE": "CLASSIQUE"
+        }
+    }
+}

@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="cineclubApp.seance.detail.title">Seance</span> {{vm.seance.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cineclubApp.seance.heureDebut">Heure Debut</span></dt>
+        <dd>
+            <span>{{vm.seance.heureDebut}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.seance.heureFin">Heure Fin</span></dt>
+        <dd>
+            <span>{{vm.seance.heureFin}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.seance.description">Description</span></dt>
+        <dd>
+            <span>{{vm.seance.description}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.seance.code">Code</span></dt>
+        <dd>
+            <span>{{vm.seance.code}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="seance-detail.edit({id:vm.seance.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

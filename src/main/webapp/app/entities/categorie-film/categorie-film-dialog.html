@@ -1,0 +1,72 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCategorieFilmLabel" data-translate="cineclubApp.categorieFilm.home.createOrEditLabel">Create or edit a Categorie Film</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.categorieFilm.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.categorieFilm.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.categorieFilm.libele" for="field_libele">Libele</label>
+            <input type="text" class="form-control" name="libele" id="field_libele"
+                    ng-model="vm.categorieFilm.libele"
+                    required/>
+            <div ng-show="editForm.libele.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.libele.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.categorieFilm.pathCouverture" for="field_pathCouverture">Path Couverture</label>
+            <input type="text" class="form-control" name="pathCouverture" id="field_pathCouverture"
+                    ng-model="vm.categorieFilm.pathCouverture"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setCouverture($file, vm.categorieFilm)">
+            <label class="control-label" data-translate="cineclubApp.categorieFilm.couverture" for="field_couverture">Couverture</label>
+            <div>
+                <div ng-if="vm.categorieFilm.couverture" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.categorieFilm.couvertureContentType, vm.categorieFilm.couverture)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.categorieFilm.couvertureContentType}}, {{vm.byteSize(vm.categorieFilm.couverture)}}</span>
+                    <button type="button" ng-click="vm.categorieFilm.couverture=null;vm.categorieFilm.couvertureContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setCouverture($file, vm.categorieFilm)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="couverture" id="field_couverture"
+                    ng-model="vm.categorieFilm.couverture"
+                    />
+            <input type="hidden" class="form-control" name="couvertureContentType" id="field_couvertureContentType"
+                    ng-model="vm.categorieFilm.couvertureContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.categorieFilm.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.categorieFilm.description"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

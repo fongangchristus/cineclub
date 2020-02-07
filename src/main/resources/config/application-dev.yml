@@ -32,12 +32,12 @@ spring:
         serialization.indent_output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:postgresql://localhost:5432/iptv
-        #url: jdbc:postgresql://192.168.6.106:5432/pgwitg
-        #username: pgwitg
-        #password: pgwitg
-        username: iptv
-        password: iptv
+        url: jdbc:postgresql://localhost:5432/cineclub
+        #url: jdbc:postgresql://192.168.6.106:5432/cineclub
+        #username: cineclub
+        #password: cineclub
+        username: cineclub
+        password: cineclub
 
     jpa:
         database-platform: io.github.jhipster.domain.util.FixedPostgreSQL82Dialect

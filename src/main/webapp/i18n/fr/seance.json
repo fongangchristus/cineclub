@@ -1,0 +1,25 @@
+
+{
+    "cineclubApp": {
+        "seance" : {
+            "home": {
+                "title": "Seances",
+                "createLabel": "Créer un nouveau Seance",
+                "createOrEditLabel": "Créer ou éditer un Seance"
+            },
+            "created": "Un nouveau Seance a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Seance avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Seance avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Seance {{ id }} ?"
+            },
+            "detail": {
+                "title": "Seance"
+            },
+            "heureDebut": "Heure Debut",
+            "heureFin": "Heure Fin",
+            "description": "Description",
+            "code": "Code"
+        }
+    }
+}

@@ -12,6 +12,10 @@ entity Ville {
 	libele String required,
     description String
 }
+entity Pays {
+	libele String required,
+    description String
+}
 entity Salle {
 	libele String required,
   	pathCouverture String ,
@@ -24,7 +28,7 @@ entity Salle {
 
 entity Adresse {
 	telephone1 String required,
-    telephone2 String,    
+    telephone2 String,
     adresse String,
     email String,
     description String,
@@ -74,11 +78,14 @@ entity Projection {
 	libele String,
     duree String,
     code String,
+    jour Jour,
+    typeProjection TypeProjection,
     description String
 }
 entity PrixTicket {
     prix Double,
     code String,
+    typePlace TypePlace,
     description String
 }
 entity Ticket {
@@ -113,19 +120,16 @@ enum TypeProjection {
 }
 
 relationship ManyToOne {
-    PrixTicket{typePlace} to TypePlace,
-    Ticket{prixTicket} to PrixTicket,
-    Projection{salle} to Salle,
-    Projection{jour} to Jour,
     Projection{film} to Film,
-    Projection{typeProjection} to TypeProjection,
+    Ticket{prixTicket} to PrixTicket,
     Projection{plageHoraire} to Seance,
+    Projection{salle} to Salle,
     Salle{ville} to Ville,
     Film{categorie} to CategorieFilm,
     Salle{cinema} to Cinema,
     Ticket{projection} to Projection,
-    Reservation{client} to Client
-
+    Reservation{client} to Client,
+    Ville{pays} to Pays
 }
 relationship OneToMany {
     Reservation{listTicket} to Ticket,
@@ -142,7 +146,7 @@ paginate * with pagination
 dto * with mapstruct
 
 // Set service options to all except few
-service all with serviceImpl 
+service all with serviceImpl
 
 
 

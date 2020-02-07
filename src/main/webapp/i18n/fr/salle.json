@@ -1,0 +1,31 @@
+
+{
+    "cineclubApp": {
+        "salle" : {
+            "home": {
+                "title": "Salles",
+                "createLabel": "Créer un nouveau Salle",
+                "createOrEditLabel": "Créer ou éditer un Salle"
+            },
+            "created": "Un nouveau Salle a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Salle avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Salle avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Salle {{ id }} ?"
+            },
+            "detail": {
+                "title": "Salle"
+            },
+            "libele": "Libele",
+            "pathCouverture": "Path Couverture",
+            "code": "Code",
+            "description": "Description",
+            "nombrePlaceTotale": "Nombre Place Totale",
+            "nombrePlaceBalcon": "Nombre Place Balcon",
+            "nombrePlaceClasique": "Nombre Place Clasique",
+            "adresse": "Adresse",
+            "ville": "Ville",
+            "cinema": "Cinema"
+        }
+    }
+}

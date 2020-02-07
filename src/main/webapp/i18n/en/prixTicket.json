@@ -1,0 +1,26 @@
+
+{
+    "cineclubApp": {
+        "prixTicket" : {
+            "home": {
+                "title": "Prix Tickets",
+                "createLabel": "Create a new Prix Ticket",
+                "createOrEditLabel": "Create or edit a Prix Ticket"
+            },
+            "created": "A new Prix Ticket is created with identifier {{ param }}",
+            "updated": "A Prix Ticket is updated with identifier {{ param }}",
+            "deleted": "A Prix Ticket is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Prix Ticket {{ id }}?"
+            },
+            "detail": {
+                "title": "Prix Ticket"
+            },
+            "prix": "Prix",
+            "code": "Code",
+            "typePlace": "Type Place",
+            "description": "Description",
+            "projection": "Projection"
+        }
+    }
+}

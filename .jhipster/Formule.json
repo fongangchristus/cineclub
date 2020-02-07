@@ -1,0 +1,36 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "libele",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateReservation",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "prixBalcon",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "prixClassique",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "statutFormule",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20200207103014",
+    "entityTableName": "formule",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

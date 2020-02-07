@@ -1,0 +1,65 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFormuleLabel" data-translate="cineclubApp.formule.home.createOrEditLabel">Create or edit a Formule</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.formule.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.formule.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.formule.libele" for="field_libele">Libele</label>
+            <input type="text" class="form-control" name="libele" id="field_libele"
+                    ng-model="vm.formule.libele"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.formule.dateReservation" for="field_dateReservation">Date Reservation</label>
+                <div class="input-group">
+                    <input id="field_dateReservation" type="text" class="form-control" name="dateReservation" uib-datepicker-popup="{{dateformat}}" ng-model="vm.formule.dateReservation" is-open="vm.datePickerOpenStatus.dateReservation"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dateReservation')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.formule.code" for="field_code">Code</label>
+            <input type="number" class="form-control" name="code" id="field_code"
+                    ng-model="vm.formule.code"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.formule.prixBalcon" for="field_prixBalcon">Prix Balcon</label>
+            <input type="number" class="form-control" name="prixBalcon" id="field_prixBalcon"
+                    ng-model="vm.formule.prixBalcon"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.formule.prixClassique" for="field_prixClassique">Prix Classique</label>
+            <input type="number" class="form-control" name="prixClassique" id="field_prixClassique"
+                    ng-model="vm.formule.prixClassique"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.formule.statutFormule" for="field_statutFormule">Statut Formule</label>
+                <input type="checkbox" name="statutFormule" id="field_statutFormule"
+                          ng-model="vm.formule.statutFormule"/>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

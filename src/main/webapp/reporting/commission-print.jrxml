@@ -18,7 +18,7 @@
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Payment Gateway]]></text>
+				<text><![CDATA[Ciné-club]]></text>
 			</staticText>
 			<image>
 				<reportElement x="241" y="6" width="86" height="63" uuid="4eea495a-aa7b-4791-b037-8fcefd601c32"/>

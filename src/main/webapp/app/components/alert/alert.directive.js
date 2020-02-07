@@ -23,7 +23,7 @@
 
         vm.alerts = AlertService.get();
         for(var i = 0; i < vm.alerts.length; i++) {
-            toaster.pop(vm.alerts[i].type + "", "Payment Gateway", vm.alerts[i].msg + "", 5000, 'trustedHtml');
+            toaster.pop(vm.alerts[i].type + "", "Ciné-club", vm.alerts[i].msg + "", 5000, 'trustedHtml');
         }
 
         $scope.$on('$destroy', function () {

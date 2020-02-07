@@ -1,0 +1,27 @@
+
+{
+    "cineclubApp": {
+        "formule" : {
+            "home": {
+                "title": "Formules",
+                "createLabel": "Create a new Formule",
+                "createOrEditLabel": "Create or edit a Formule"
+            },
+            "created": "A new Formule is created with identifier {{ param }}",
+            "updated": "A Formule is updated with identifier {{ param }}",
+            "deleted": "A Formule is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Formule {{ id }}?"
+            },
+            "detail": {
+                "title": "Formule"
+            },
+            "libele": "Libele",
+            "dateReservation": "Date Reservation",
+            "code": "Code",
+            "prixBalcon": "Prix Balcon",
+            "prixClassique": "Prix Classique",
+            "statutFormule": "Statut Formule"
+        }
+    }
+}

@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span data-translate="cineclubApp.ticket.detail.title">Ticket</span> {{vm.ticket.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cineclubApp.ticket.codePaiement">Code Paiement</span></dt>
+        <dd>
+            <span>{{vm.ticket.codePaiement}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.ticket.numeroPlace">Numero Place</span></dt>
+        <dd>
+            <span>{{vm.ticket.numeroPlace}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.ticket.prix">Prix</span></dt>
+        <dd>
+            <span>{{vm.ticket.prix}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.ticket.statutTicket">Statut Ticket</span></dt>
+        <dd>
+            <span>{{vm.ticket.statutTicket}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.ticket.prixTicket">Prix Ticket</span></dt>
+        <dd>
+            <a ui-sref="prix-ticket-detail({id:vm.ticket.prixTicketId})">{{vm.ticket.prixTicketId}}</a>
+        </dd>
+        <dt><span data-translate="cineclubApp.ticket.projection">Projection</span></dt>
+        <dd>
+            <a ui-sref="projection-detail({id:vm.ticket.projectionId})">{{vm.ticket.projectionId}}</a>
+        </dd>
+        <dt><span data-translate="cineclubApp.ticket.reservation">Reservation</span></dt>
+        <dd>
+            <a ui-sref="reservation-detail({id:vm.ticket.reservationId})">{{vm.ticket.reservationId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="ticket-detail.edit({id:vm.ticket.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

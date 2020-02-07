@@ -1,0 +1,55 @@
+
+<div>
+    <h2><span data-translate="cineclubApp.projection.detail.title">Projection</span> {{vm.projection.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cineclubApp.projection.libele">Libele</span></dt>
+        <dd>
+            <span>{{vm.projection.libele}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.projection.duree">Duree</span></dt>
+        <dd>
+            <span>{{vm.projection.duree}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.projection.code">Code</span></dt>
+        <dd>
+            <span>{{vm.projection.code}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.projection.jour">Jour</span></dt>
+        <dd>
+            <span data-translate="{{'cineclubApp.Jour.' + vm.projection.jour}}">{{vm.projection.jour}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.projection.typeProjection">Type Projection</span></dt>
+        <dd>
+            <span data-translate="{{'cineclubApp.TypeProjection.' + vm.projection.typeProjection}}">{{vm.projection.typeProjection}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.projection.description">Description</span></dt>
+        <dd>
+            <span>{{vm.projection.description}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.projection.film">Film</span></dt>
+        <dd>
+            <a ui-sref="film-detail({id:vm.projection.filmId})">{{vm.projection.filmId}}</a>
+        </dd>
+        <dt><span data-translate="cineclubApp.projection.plageHoraire">Plage Horaire</span></dt>
+        <dd>
+            <a ui-sref="seance-detail({id:vm.projection.plageHoraireId})">{{vm.projection.plageHoraireId}}</a>
+        </dd>
+        <dt><span data-translate="cineclubApp.projection.salle">Salle</span></dt>
+        <dd>
+            <a ui-sref="salle-detail({id:vm.projection.salleId})">{{vm.projection.salleId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="projection-detail.edit({id:vm.projection.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

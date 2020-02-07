@@ -1,0 +1,27 @@
+
+{
+    "cineclubApp": {
+        "cinema" : {
+            "home": {
+                "title": "Cinemas",
+                "createLabel": "Créer un nouveau Cinema",
+                "createOrEditLabel": "Créer ou éditer un Cinema"
+            },
+            "created": "Un nouveau Cinema a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Cinema avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Cinema avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Cinema {{ id }} ?"
+            },
+            "detail": {
+                "title": "Cinema"
+            },
+            "libele": "Libele",
+            "description": "Description",
+            "proprietaire": "Proprietaire",
+            "lienFacebook": "Lien Facebook",
+            "liensWathsapp": "Liens Wathsapp",
+            "lienYoutube": "Lien Youtube"
+        }
+    }
+}

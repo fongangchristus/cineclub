@@ -1,0 +1,31 @@
+
+{
+    "cineclubApp": {
+        "projection" : {
+            "home": {
+                "title": "Projections",
+                "createLabel": "Créer un nouveau Projection",
+                "createOrEditLabel": "Créer ou éditer un Projection"
+            },
+            "created": "Un nouveau Projection a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Projection avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Projection avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Projection {{ id }} ?"
+            },
+            "detail": {
+                "title": "Projection"
+            },
+            "libele": "Libele",
+            "duree": "Duree",
+            "code": "Code",
+            "jour": "Jour",
+            "typeProjection": "Type Projection",
+            "description": "Description",
+            "listPrixTicket": "List Prix Ticket",
+            "film": "Film",
+            "plageHoraire": "Plage Horaire",
+            "salle": "Salle"
+        }
+    }
+}

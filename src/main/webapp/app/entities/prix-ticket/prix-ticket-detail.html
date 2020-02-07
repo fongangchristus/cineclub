@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span data-translate="cineclubApp.prixTicket.detail.title">Prix Ticket</span> {{vm.prixTicket.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cineclubApp.prixTicket.prix">Prix</span></dt>
+        <dd>
+            <span>{{vm.prixTicket.prix}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.prixTicket.code">Code</span></dt>
+        <dd>
+            <span>{{vm.prixTicket.code}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.prixTicket.typePlace">Type Place</span></dt>
+        <dd>
+            <span data-translate="{{'cineclubApp.TypePlace.' + vm.prixTicket.typePlace}}">{{vm.prixTicket.typePlace}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.prixTicket.description">Description</span></dt>
+        <dd>
+            <span>{{vm.prixTicket.description}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.prixTicket.projection">Projection</span></dt>
+        <dd>
+            <a ui-sref="projection-detail({id:vm.prixTicket.projectionId})">{{vm.prixTicket.projectionId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="prix-ticket-detail.edit({id:vm.prixTicket.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

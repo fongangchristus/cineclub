@@ -1,0 +1,31 @@
+
+{
+    "cineclubApp": {
+        "film" : {
+            "home": {
+                "title": "Films",
+                "createLabel": "Créer un nouveau Film",
+                "createOrEditLabel": "Créer ou éditer un Film"
+            },
+            "created": "Un nouveau Film a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Film avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Film avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Film {{ id }} ?"
+            },
+            "detail": {
+                "title": "Film"
+            },
+            "titre": "Titre",
+            "pathCouverture": "Path Couverture",
+            "bandeAnnonce": "Bande Annonce",
+            "couverture": "Couverture",
+            "description": "Description",
+            "resume": "Resume",
+            "duree": "Duree",
+            "realisateur": "Realisateur",
+            "dateSortie": "Date Sortie",
+            "categorie": "Categorie"
+        }
+    }
+}

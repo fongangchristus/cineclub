@@ -10,5 +10,33 @@
 	<include file="config/liquibase/changelog/20190107140456_added_entity_PgwRoleApp.xml" relativeToChangelogFile="false"  />
 	<include file="config/liquibase/changelog/20190410164030_added_relation_RoleAuthotity.xml" relativeToChangelogFile="false"  />
 	<include file="config/liquibase/changelog/20190410172104_added_entity_Acte.xml" relativeToChangelogFile="false"  />
-	
+
+    <include file="config/liquibase/changelog/20200207103005_added_entity_Adresse.xml" relativeToChangelogFile="false" />
+    <include file="config/liquibase/changelog/20200207103001_added_entity_Cinema.xml" relativeToChangelogFile="false" />
+    <include file="config/liquibase/changelog/20200207103003_added_entity_Pays.xml" relativeToChangelogFile="false"  />
+    <include file="config/liquibase/changelog/20200207103007_added_entity_CategorieFilm.xml" relativeToChangelogFile="false"  />
+
+    <include file="config/liquibase/changelog/20200207103002_added_entity_Ville.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200207103002_added_entity_constraints_Ville.xml" relativeToChangelogFile="false"  />
+    <include file="config/liquibase/changelog/20200207103004_added_entity_Salle.xml" relativeToChangelogFile="false"  />
+    <include file="config/liquibase/changelog/20200207103004_added_entity_constraints_Salle.xml" relativeToChangelogFile="false"  />
+
+    <include file="config/liquibase/changelog/20200207103006_added_entity_Film.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200207103006_added_entity_constraints_Film.xml" relativeToChangelogFile="false"  />
+
+    <include file="config/liquibase/changelog/20200207103008_added_entity_Seance.xml" relativeToChangelogFile="false"  />
+    <include file="config/liquibase/changelog/20200207103009_added_entity_Client.xml" relativeToChangelogFile="false"  />
+    <include file="config/liquibase/changelog/20200207103009_added_entity_constraints_Client.xml" relativeToChangelogFile="false" />
+
+    <include file="config/liquibase/changelog/20200207103010_added_entity_Projection.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200207103010_added_entity_constraints_Projection.xml" relativeToChangelogFile="false"  />
+    <include file="config/liquibase/changelog/20200207103011_added_entity_PrixTicket.xml" relativeToChangelogFile="false"  />
+    <include file="config/liquibase/changelog/20200207103011_added_entity_constraints_PrixTicket.xml" relativeToChangelogFile="false"  />
+    <include file="config/liquibase/changelog/20200207103012_added_entity_Ticket.xml" relativeToChangelogFile="false"  />
+
+    <include file="config/liquibase/changelog/20200207103013_added_entity_Reservation.xml" relativeToChangelogFile="false"  />
+    <include file="config/liquibase/changelog/20200207103013_added_entity_constraints_Reservation.xml" relativeToChangelogFile="false"  />
+    <include file="config/liquibase/changelog/20200207103014_added_entity_Formule.xml" relativeToChangelogFile="false"  />
+    <!--<include file="config/liquibase/changelog/20200207110339_changelog.xml" relativeToChangelogFile="false"  />-->
+
 </databaseChangeLog>

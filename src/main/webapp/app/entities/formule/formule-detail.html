@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span data-translate="cineclubApp.formule.detail.title">Formule</span> {{vm.formule.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cineclubApp.formule.libele">Libele</span></dt>
+        <dd>
+            <span>{{vm.formule.libele}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.formule.dateReservation">Date Reservation</span></dt>
+        <dd>
+            <span>{{vm.formule.dateReservation | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.formule.code">Code</span></dt>
+        <dd>
+            <span>{{vm.formule.code}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.formule.prixBalcon">Prix Balcon</span></dt>
+        <dd>
+            <span>{{vm.formule.prixBalcon}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.formule.prixClassique">Prix Classique</span></dt>
+        <dd>
+            <span>{{vm.formule.prixClassique}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.formule.statutFormule">Statut Formule</span></dt>
+        <dd>
+            <span>{{vm.formule.statutFormule}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="formule-detail.edit({id:vm.formule.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

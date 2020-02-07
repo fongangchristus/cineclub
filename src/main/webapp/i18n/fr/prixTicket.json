@@ -1,0 +1,26 @@
+
+{
+    "cineclubApp": {
+        "prixTicket" : {
+            "home": {
+                "title": "PrixTickets",
+                "createLabel": "Créer un nouveau Prix Ticket",
+                "createOrEditLabel": "Créer ou éditer un Prix Ticket"
+            },
+            "created": "Un nouveau Prix Ticket a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Prix Ticket avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Prix Ticket avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Prix Ticket {{ id }} ?"
+            },
+            "detail": {
+                "title": "Prix Ticket"
+            },
+            "prix": "Prix",
+            "code": "Code",
+            "typePlace": "Type Place",
+            "description": "Description",
+            "projection": "Projection"
+        }
+    }
+}

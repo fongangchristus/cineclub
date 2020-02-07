@@ -1,0 +1,70 @@
+<div>
+    <h2 data-translate="cineclubApp.cinema.home.title">Cinemas</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="cinema.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="cineclubApp.cinema.home.createLabel">
+                        Create new Cinema
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="libele"><span data-translate="cineclubApp.cinema.libele">Libele</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span data-translate="cineclubApp.cinema.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="proprietaire"><span data-translate="cineclubApp.cinema.proprietaire">Proprietaire</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="lienFacebook"><span data-translate="cineclubApp.cinema.lienFacebook">Lien Facebook</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="liensWathsapp"><span data-translate="cineclubApp.cinema.liensWathsapp">Liens Wathsapp</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="lienYoutube"><span data-translate="cineclubApp.cinema.lienYoutube">Lien Youtube</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="cinema in vm.cinemas track by cinema.id">
+                    <td><a ui-sref="cinema-detail({id:cinema.id})">{{cinema.id}}</a></td>
+                    <td>{{cinema.libele}}</td>
+                    <td>{{cinema.description}}</td>
+                    <td>{{cinema.proprietaire}}</td>
+                    <td>{{cinema.lienFacebook}}</td>
+                    <td>{{cinema.liensWathsapp}}</td>
+                    <td>{{cinema.lienYoutube}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="cinema-detail({id:cinema.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="cinema.edit({id:cinema.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="cinema.delete({id:cinema.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

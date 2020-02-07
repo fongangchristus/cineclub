@@ -1,0 +1,82 @@
+<div>
+    <h2 data-translate="cineclubApp.projection.home.title">Projections</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="projection.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="cineclubApp.projection.home.createLabel">
+                        Create new Projection
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="libele"><span data-translate="cineclubApp.projection.libele">Libele</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="duree"><span data-translate="cineclubApp.projection.duree">Duree</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="code"><span data-translate="cineclubApp.projection.code">Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="jour"><span data-translate="cineclubApp.projection.jour">Jour</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="typeProjection"><span data-translate="cineclubApp.projection.typeProjection">Type Projection</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span data-translate="cineclubApp.projection.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="filmId"><span data-translate="cineclubApp.projection.film">Film</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="plageHoraireId"><span data-translate="cineclubApp.projection.plageHoraire">Plage Horaire</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="salleId"><span data-translate="cineclubApp.projection.salle">Salle</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="projection in vm.projections track by projection.id">
+                    <td><a ui-sref="projection-detail({id:projection.id})">{{projection.id}}</a></td>
+                    <td>{{projection.libele}}</td>
+                    <td>{{projection.duree}}</td>
+                    <td>{{projection.code}}</td>
+                    <td data-translate="{{'cineclubApp.Jour.' + projection.jour}}">{{projection.jour}}</td>
+                    <td data-translate="{{'cineclubApp.TypeProjection.' + projection.typeProjection}}">{{projection.typeProjection}}</td>
+                    <td>{{projection.description}}</td>
+                    <td>
+                        <a ui-sref="film-detail({id:projection.filmId})">{{projection.filmId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="seance-detail({id:projection.plageHoraireId})">{{projection.plageHoraireId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="salle-detail({id:projection.salleId})">{{projection.salleId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="projection-detail({id:projection.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="projection.edit({id:projection.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="projection.delete({id:projection.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

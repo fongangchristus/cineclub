@@ -1,0 +1,59 @@
+
+<div>
+    <h2><span data-translate="cineclubApp.salle.detail.title">Salle</span> {{vm.salle.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cineclubApp.salle.libele">Libele</span></dt>
+        <dd>
+            <span>{{vm.salle.libele}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.salle.pathCouverture">Path Couverture</span></dt>
+        <dd>
+            <span>{{vm.salle.pathCouverture}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.salle.code">Code</span></dt>
+        <dd>
+            <span>{{vm.salle.code}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.salle.description">Description</span></dt>
+        <dd>
+            <span>{{vm.salle.description}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.salle.nombrePlaceTotale">Nombre Place Totale</span></dt>
+        <dd>
+            <span>{{vm.salle.nombrePlaceTotale}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.salle.nombrePlaceBalcon">Nombre Place Balcon</span></dt>
+        <dd>
+            <span>{{vm.salle.nombrePlaceBalcon}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.salle.nombrePlaceClasique">Nombre Place Clasique</span></dt>
+        <dd>
+            <span>{{vm.salle.nombrePlaceClasique}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.salle.adresse">Adresse</span></dt>
+        <dd>
+            <a ui-sref="adresse-detail({id:vm.salle.adresseId})">{{vm.salle.adresseId}}</a>
+        </dd>
+        <dt><span data-translate="cineclubApp.salle.ville">Ville</span></dt>
+        <dd>
+            <a ui-sref="ville-detail({id:vm.salle.villeId})">{{vm.salle.villeId}}</a>
+        </dd>
+        <dt><span data-translate="cineclubApp.salle.cinema">Cinema</span></dt>
+        <dd>
+            <a ui-sref="cinema-detail({id:vm.salle.cinemaId})">{{vm.salle.cinemaId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="salle-detail.edit({id:vm.salle.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

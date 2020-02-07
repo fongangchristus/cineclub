@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span data-translate="cineclubApp.categorieFilm.detail.title">Categorie Film</span> {{vm.categorieFilm.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cineclubApp.categorieFilm.libele">Libele</span></dt>
+        <dd>
+            <span>{{vm.categorieFilm.libele}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.categorieFilm.pathCouverture">Path Couverture</span></dt>
+        <dd>
+            <span>{{vm.categorieFilm.pathCouverture}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.categorieFilm.couverture">Couverture</span></dt>
+        <dd>
+            <div ng-if="vm.categorieFilm.couverture">
+                <a ng-click="vm.openFile(vm.categorieFilm.couvertureContentType, vm.categorieFilm.couverture)" data-translate="entity.action.open">open</a>
+                {{vm.categorieFilm.couvertureContentType}}, {{vm.byteSize(vm.categorieFilm.couverture)}}
+            </div>
+        </dd>
+        <dt><span data-translate="cineclubApp.categorieFilm.description">Description</span></dt>
+        <dd>
+            <span>{{vm.categorieFilm.description}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="categorie-film-detail.edit({id:vm.categorieFilm.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

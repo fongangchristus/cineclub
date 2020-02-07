@@ -1,0 +1,28 @@
+
+{
+    "cineclubApp": {
+        "adresse" : {
+            "home": {
+                "title": "Adresses",
+                "createLabel": "Create a new Adresse",
+                "createOrEditLabel": "Create or edit a Adresse"
+            },
+            "created": "A new Adresse is created with identifier {{ param }}",
+            "updated": "A Adresse is updated with identifier {{ param }}",
+            "deleted": "A Adresse is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Adresse {{ id }}?"
+            },
+            "detail": {
+                "title": "Adresse"
+            },
+            "telephone1": "Telephone 1",
+            "telephone2": "Telephone 2",
+            "adresse": "Adresse",
+            "email": "Email",
+            "description": "Description",
+            "latitude": "Latitude",
+            "longitude": "Longitude"
+        }
+    }
+}

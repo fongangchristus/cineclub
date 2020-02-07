@@ -1,0 +1,25 @@
+
+{
+    "cineclubApp": {
+        "categorieFilm" : {
+            "home": {
+                "title": "CategorieFilms",
+                "createLabel": "Créer un nouveau Categorie Film",
+                "createOrEditLabel": "Créer ou éditer un Categorie Film"
+            },
+            "created": "Un nouveau Categorie Film a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Categorie Film avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Categorie Film avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Categorie Film {{ id }} ?"
+            },
+            "detail": {
+                "title": "Categorie Film"
+            },
+            "libele": "Libele",
+            "pathCouverture": "Path Couverture",
+            "couverture": "Couverture",
+            "description": "Description"
+        }
+    }
+}

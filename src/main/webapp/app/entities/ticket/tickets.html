@@ -1,0 +1,78 @@
+<div>
+    <h2 data-translate="cineclubApp.ticket.home.title">Tickets</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="ticket.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="cineclubApp.ticket.home.createLabel">
+                        Create new Ticket
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="codePaiement"><span data-translate="cineclubApp.ticket.codePaiement">Code Paiement</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="numeroPlace"><span data-translate="cineclubApp.ticket.numeroPlace">Numero Place</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="prix"><span data-translate="cineclubApp.ticket.prix">Prix</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="statutTicket"><span data-translate="cineclubApp.ticket.statutTicket">Statut Ticket</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="prixTicketId"><span data-translate="cineclubApp.ticket.prixTicket">Prix Ticket</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="projectionId"><span data-translate="cineclubApp.ticket.projection">Projection</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="reservationId"><span data-translate="cineclubApp.ticket.reservation">Reservation</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="ticket in vm.tickets track by ticket.id">
+                    <td><a ui-sref="ticket-detail({id:ticket.id})">{{ticket.id}}</a></td>
+                    <td>{{ticket.codePaiement}}</td>
+                    <td>{{ticket.numeroPlace}}</td>
+                    <td>{{ticket.prix}}</td>
+                    <td>{{ticket.statutTicket}}</td>
+                    <td>
+                        <a ui-sref="prix-ticket-detail({id:ticket.prixTicketId})">{{ticket.prixTicketId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="projection-detail({id:ticket.projectionId})">{{ticket.projectionId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="reservation-detail({id:ticket.reservationId})">{{ticket.reservationId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="ticket-detail({id:ticket.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="ticket.edit({id:ticket.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="ticket.delete({id:ticket.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

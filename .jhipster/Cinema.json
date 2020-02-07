@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "libele",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "proprietaire",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lienFacebook",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "liensWathsapp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lienYoutube",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20200207103001",
+    "entityTableName": "cinema",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

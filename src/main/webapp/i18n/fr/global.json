@@ -258,7 +258,7 @@
         "pasDeDonnees": "Pas de données",
         "welcome": "Bienvenue",
         "partieGenerale": "Générale",
-		"title": "Payment Gateway",
+		"title": "Ciné-club",
 		"browsehappy": "Vous utilisez un <strong>ancien</strong> navigateur. Veuillez <a href=\"http://browsehappy.com/?locale=fr\">mettre à jour votre navigateur</a> pour une meilleure expérience.",
 		"menu": {
 			"home": "Accueil",
@@ -337,6 +337,19 @@
 				"pgwMarqueTerminal": "Marques",
 				"pgwModeleTerminal": "Modèles",
 "acte": "Acte",
+"cinema": "Cinema",
+"ville": "Ville",
+"salle": "Salle",
+"adresse": "Adresse",
+"film": "Film",
+"categorieFilm": "Categorie Film",
+"seance": "Seance",
+"client": "Client",
+"projection": "Projection",
+"prixTicket": "Prix Ticket",
+"ticket": "Ticket",
+"reservation": "Reservation",
+"formule": "Formule",
 				"jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
 				},
 				"account": {

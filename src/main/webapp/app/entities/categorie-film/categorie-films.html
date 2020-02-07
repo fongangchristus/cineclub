@@ -1,0 +1,69 @@
+<div>
+    <h2 data-translate="cineclubApp.categorieFilm.home.title">Categorie Films</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="categorie-film.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="cineclubApp.categorieFilm.home.createLabel">
+                        Create new Categorie Film
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="libele"><span data-translate="cineclubApp.categorieFilm.libele">Libele</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pathCouverture"><span data-translate="cineclubApp.categorieFilm.pathCouverture">Path Couverture</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="couverture"><span data-translate="cineclubApp.categorieFilm.couverture">Couverture</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span data-translate="cineclubApp.categorieFilm.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="categorieFilm in vm.categorieFilms track by categorieFilm.id">
+                    <td><a ui-sref="categorie-film-detail({id:categorieFilm.id})">{{categorieFilm.id}}</a></td>
+                    <td>{{categorieFilm.libele}}</td>
+                    <td>{{categorieFilm.pathCouverture}}</td>
+                    <td>
+                        <a ng-if="categorieFilm.couverture" ng-click="vm.openFile(categorieFilm.couvertureContentType, categorieFilm.couverture)" data-translate="entity.action.open">open</a>
+                        <span ng-if="categorieFilm.couverture">{{categorieFilm.couvertureContentType}}, {{vm.byteSize(categorieFilm.couverture)}}</span>
+                    </td>
+                    <td>{{categorieFilm.description}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="categorie-film-detail({id:categorieFilm.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="categorie-film.edit({id:categorieFilm.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="categorie-film.delete({id:categorieFilm.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

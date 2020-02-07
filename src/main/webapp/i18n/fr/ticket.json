@@ -1,0 +1,28 @@
+
+{
+    "cineclubApp": {
+        "ticket" : {
+            "home": {
+                "title": "Tickets",
+                "createLabel": "Créer un nouveau Ticket",
+                "createOrEditLabel": "Créer ou éditer un Ticket"
+            },
+            "created": "Un nouveau Ticket a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Ticket avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Ticket avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Ticket {{ id }} ?"
+            },
+            "detail": {
+                "title": "Ticket"
+            },
+            "codePaiement": "Code Paiement",
+            "numeroPlace": "Numero Place",
+            "prix": "Prix",
+            "statutTicket": "Statut Ticket",
+            "prixTicket": "Prix Ticket",
+            "projection": "Projection",
+            "reservation": "Reservation"
+        }
+    }
+}

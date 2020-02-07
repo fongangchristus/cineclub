@@ -20,7 +20,7 @@
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[Payment Gateway]]></text>
+				<text><![CDATA[Ciné-club]]></text>
 			</staticText>
 			<image hAlign="Center" vAlign="Middle">
 				<reportElement isPrintRepeatedValues="false" x="166" y="0" width="208" height="55" uuid="e4fa68e2-2f05-47a8-89cd-5b3609eb5f65"/>
@@ -91,7 +91,7 @@
 				<textElement>
 					<font size="11" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Payment Gateway]]></text>
+				<text><![CDATA[Ciné-club]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="195" y="114" width="79" height="20" uuid="a37273fb-ba88-490d-a8e4-2a490c2952b8"/>

@@ -1,0 +1,62 @@
+
+<div>
+    <h2><span data-translate="cineclubApp.film.detail.title">Film</span> {{vm.film.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cineclubApp.film.titre">Titre</span></dt>
+        <dd>
+            <span>{{vm.film.titre}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.film.pathCouverture">Path Couverture</span></dt>
+        <dd>
+            <span>{{vm.film.pathCouverture}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.film.bandeAnnonce">Bande Annonce</span></dt>
+        <dd>
+            <span>{{vm.film.bandeAnnonce}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.film.couverture">Couverture</span></dt>
+        <dd>
+            <div ng-if="vm.film.couverture">
+                <a ng-click="vm.openFile(vm.film.couvertureContentType, vm.film.couverture)" data-translate="entity.action.open">open</a>
+                {{vm.film.couvertureContentType}}, {{vm.byteSize(vm.film.couverture)}}
+            </div>
+        </dd>
+        <dt><span data-translate="cineclubApp.film.description">Description</span></dt>
+        <dd>
+            <span>{{vm.film.description}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.film.resume">Resume</span></dt>
+        <dd>
+            <span>{{vm.film.resume}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.film.duree">Duree</span></dt>
+        <dd>
+            <span>{{vm.film.duree}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.film.realisateur">Realisateur</span></dt>
+        <dd>
+            <span>{{vm.film.realisateur}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.film.dateSortie">Date Sortie</span></dt>
+        <dd>
+            <span>{{vm.film.dateSortie | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.film.categorie">Categorie</span></dt>
+        <dd>
+            <a ui-sref="categorie-film-detail({id:vm.film.categorieId})">{{vm.film.categorieId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="film-detail.edit({id:vm.film.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span data-translate="cineclubApp.reservation.detail.title">Reservation</span> {{vm.reservation.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cineclubApp.reservation.nomClient">Nom Client</span></dt>
+        <dd>
+            <span>{{vm.reservation.nomClient}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.reservation.dateReservation">Date Reservation</span></dt>
+        <dd>
+            <span>{{vm.reservation.dateReservation | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.reservation.quantite">Quantite</span></dt>
+        <dd>
+            <span>{{vm.reservation.quantite}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.reservation.prixToTale">Prix To Tale</span></dt>
+        <dd>
+            <span>{{vm.reservation.prixToTale}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.reservation.statutReservation">Statut Reservation</span></dt>
+        <dd>
+            <span>{{vm.reservation.statutReservation}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.reservation.client">Client</span></dt>
+        <dd>
+            <a ui-sref="client-detail({id:vm.reservation.clientId})">{{vm.reservation.clientId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="reservation-detail.edit({id:vm.reservation.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,70 @@
+<div>
+    <h2 data-translate="cineclubApp.formule.home.title">Formules</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="formule.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="cineclubApp.formule.home.createLabel">
+                        Create new Formule
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="libele"><span data-translate="cineclubApp.formule.libele">Libele</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dateReservation"><span data-translate="cineclubApp.formule.dateReservation">Date Reservation</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="code"><span data-translate="cineclubApp.formule.code">Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="prixBalcon"><span data-translate="cineclubApp.formule.prixBalcon">Prix Balcon</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="prixClassique"><span data-translate="cineclubApp.formule.prixClassique">Prix Classique</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="statutFormule"><span data-translate="cineclubApp.formule.statutFormule">Statut Formule</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="formule in vm.formules track by formule.id">
+                    <td><a ui-sref="formule-detail({id:formule.id})">{{formule.id}}</a></td>
+                    <td>{{formule.libele}}</td>
+                        <td>{{formule.dateReservation | date:'mediumDate'}}</td>
+                    <td>{{formule.code}}</td>
+                    <td>{{formule.prixBalcon}}</td>
+                    <td>{{formule.prixClassique}}</td>
+                    <td>{{formule.statutFormule}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="formule-detail({id:formule.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="formule.edit({id:formule.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="formule.delete({id:formule.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

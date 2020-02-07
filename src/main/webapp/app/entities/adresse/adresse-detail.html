@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span data-translate="cineclubApp.adresse.detail.title">Adresse</span> {{vm.adresse.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cineclubApp.adresse.telephone1">Telephone 1</span></dt>
+        <dd>
+            <span>{{vm.adresse.telephone1}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.adresse.telephone2">Telephone 2</span></dt>
+        <dd>
+            <span>{{vm.adresse.telephone2}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.adresse.adresse">Adresse</span></dt>
+        <dd>
+            <span>{{vm.adresse.adresse}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.adresse.email">Email</span></dt>
+        <dd>
+            <span>{{vm.adresse.email}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.adresse.description">Description</span></dt>
+        <dd>
+            <span>{{vm.adresse.description}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.adresse.latitude">Latitude</span></dt>
+        <dd>
+            <span>{{vm.adresse.latitude}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.adresse.longitude">Longitude</span></dt>
+        <dd>
+            <span>{{vm.adresse.longitude}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="adresse-detail.edit({id:vm.adresse.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

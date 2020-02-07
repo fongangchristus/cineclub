@@ -1,0 +1,63 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "listPrixTicket",
+            "otherEntityName": "prixTicket",
+            "otherEntityRelationshipName": "projection"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "film",
+            "otherEntityName": "film",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "plageHoraire",
+            "otherEntityName": "seance",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "salle",
+            "otherEntityName": "salle",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "libele",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "duree",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "jour",
+            "fieldType": "Jour",
+            "fieldValues": "LUNDI,MARDI,MERCREDI,JEUDI,VENDREDI,SAMEDI,DIMANCHE"
+        },
+        {
+            "fieldName": "typeProjection",
+            "fieldType": "TypeProjection",
+            "fieldValues": "AVANT_PREMIERE,CLASSIQUE"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20200207103010",
+    "entityTableName": "projection",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

@@ -1,0 +1,64 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "adresse",
+            "otherEntityName": "adresse",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "salle"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "ville",
+            "otherEntityName": "ville",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "cinema",
+            "otherEntityName": "cinema",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "libele",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "pathCouverture",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nombrePlaceTotale",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombrePlaceBalcon",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nombrePlaceClasique",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20200207103004",
+    "entityTableName": "salle",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

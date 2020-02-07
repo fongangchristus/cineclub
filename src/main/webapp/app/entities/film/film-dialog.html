@@ -1,0 +1,136 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFilmLabel" data-translate="cineclubApp.film.home.createOrEditLabel">Create or edit a Film</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.film.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.film.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.film.titre" for="field_titre">Titre</label>
+            <input type="text" class="form-control" name="titre" id="field_titre"
+                    ng-model="vm.film.titre"
+                    required/>
+            <div ng-show="editForm.titre.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.titre.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.film.pathCouverture" for="field_pathCouverture">Path Couverture</label>
+            <input type="text" class="form-control" name="pathCouverture" id="field_pathCouverture"
+                    ng-model="vm.film.pathCouverture"
+                    required/>
+            <div ng-show="editForm.pathCouverture.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.pathCouverture.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.film.bandeAnnonce" for="field_bandeAnnonce">Bande Annonce</label>
+            <input type="text" class="form-control" name="bandeAnnonce" id="field_bandeAnnonce"
+                    ng-model="vm.film.bandeAnnonce"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setCouverture($file, vm.film)">
+            <label class="control-label" data-translate="cineclubApp.film.couverture" for="field_couverture">Couverture</label>
+            <div>
+                <div ng-if="vm.film.couverture" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.film.couvertureContentType, vm.film.couverture)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.film.couvertureContentType}}, {{vm.byteSize(vm.film.couverture)}}</span>
+                    <button type="button" ng-click="vm.film.couverture=null;vm.film.couvertureContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setCouverture($file, vm.film)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="couverture" id="field_couverture"
+                    ng-model="vm.film.couverture"
+                    />
+            <input type="hidden" class="form-control" name="couvertureContentType" id="field_couvertureContentType"
+                    ng-model="vm.film.couvertureContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.film.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.film.description"
+                    required/>
+            <div ng-show="editForm.description.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.description.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.film.resume" for="field_resume">Resume</label>
+            <input type="text" class="form-control" name="resume" id="field_resume"
+                    ng-model="vm.film.resume"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.film.duree" for="field_duree">Duree</label>
+            <input type="text" class="form-control" name="duree" id="field_duree"
+                    ng-model="vm.film.duree"
+                    required/>
+            <div ng-show="editForm.duree.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.duree.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.film.realisateur" for="field_realisateur">Realisateur</label>
+            <input type="text" class="form-control" name="realisateur" id="field_realisateur"
+                    ng-model="vm.film.realisateur"
+                    required/>
+            <div ng-show="editForm.realisateur.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.realisateur.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.film.dateSortie" for="field_dateSortie">Date Sortie</label>
+                <div class="input-group">
+                    <input id="field_dateSortie" type="text" class="form-control" name="dateSortie" uib-datepicker-popup="{{dateformat}}" ng-model="vm.film.dateSortie" is-open="vm.datePickerOpenStatus.dateSortie"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dateSortie')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="cineclubApp.film.categorie" for="field_categorie">Categorie</label>
+            <select class="form-control" id="field_categorie" name="categorie" ng-model="vm.film.categorieId" ng-options="categorieFilm.id as categorieFilm.id for categorieFilm in vm.categoriefilms"            >
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,84 @@
+<div>
+    <h2 data-translate="cineclubApp.salle.home.title">Salles</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="salle.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="cineclubApp.salle.home.createLabel">
+                        Create new Salle
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="libele"><span data-translate="cineclubApp.salle.libele">Libele</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pathCouverture"><span data-translate="cineclubApp.salle.pathCouverture">Path Couverture</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="code"><span data-translate="cineclubApp.salle.code">Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span data-translate="cineclubApp.salle.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nombrePlaceTotale"><span data-translate="cineclubApp.salle.nombrePlaceTotale">Nombre Place Totale</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nombrePlaceBalcon"><span data-translate="cineclubApp.salle.nombrePlaceBalcon">Nombre Place Balcon</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nombrePlaceClasique"><span data-translate="cineclubApp.salle.nombrePlaceClasique">Nombre Place Clasique</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="adresseId"><span data-translate="cineclubApp.salle.adresse">Adresse</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="villeId"><span data-translate="cineclubApp.salle.ville">Ville</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cinemaId"><span data-translate="cineclubApp.salle.cinema">Cinema</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="salle in vm.salles track by salle.id">
+                    <td><a ui-sref="salle-detail({id:salle.id})">{{salle.id}}</a></td>
+                    <td>{{salle.libele}}</td>
+                    <td>{{salle.pathCouverture}}</td>
+                    <td>{{salle.code}}</td>
+                    <td>{{salle.description}}</td>
+                    <td>{{salle.nombrePlaceTotale}}</td>
+                    <td>{{salle.nombrePlaceBalcon}}</td>
+                    <td>{{salle.nombrePlaceClasique}}</td>
+                    <td>
+                        <a ui-sref="adresse-detail({id:salle.adresseId})">{{salle.adresseId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="ville-detail({id:salle.villeId})">{{salle.villeId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="cinema-detail({id:salle.cinemaId})">{{salle.cinemaId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="salle-detail({id:salle.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="salle.edit({id:salle.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="salle.delete({id:salle.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

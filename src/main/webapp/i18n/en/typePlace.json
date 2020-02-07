@@ -1,0 +1,9 @@
+{
+    "cineclubApp": {
+        "TypePlace" : {
+            "null": "",
+            "BALCON": "BALCON",
+            "CLASSIQUE": "CLASSIQUE"
+        }
+    }
+}

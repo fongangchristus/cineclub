@@ -17,7 +17,7 @@
                 pageTitle: 'pgwitgApp.seqGen.home.title'
             },
             views: {
-                'content@': {
+                'content@app': {
                     templateUrl: 'app/entities/seq-gen/seq-gens.html',
                     controller: 'SeqGenController',
                     controllerAs: 'vm'
@@ -59,7 +59,7 @@
                 pageTitle: 'pgwitgApp.seqGen.detail.title'
             },
             views: {
-                'content@': {
+                'content@app': {
                     templateUrl: 'app/entities/seq-gen/seq-gen-detail.html',
                     controller: 'SeqGenDetailController',
                     controllerAs: 'vm'
