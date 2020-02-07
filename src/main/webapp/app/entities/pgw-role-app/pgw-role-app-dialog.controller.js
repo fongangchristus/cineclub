@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .controller('PgwRoleAppDialogController', PgwRoleAppDialogController);
 
     PgwRoleAppDialogController.$inject = ['$timeout', '$resource', 'Principal', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'PgwRoleApp'];

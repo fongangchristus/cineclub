@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .controller('HomeController', HomeController);
 
     HomeController.$inject = ['$scope', '$q', '$resource', '$timeout', 'User',  'Principal', 'LoginService', '$state'];

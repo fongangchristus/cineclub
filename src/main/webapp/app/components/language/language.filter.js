@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .filter('findLanguageFromKey', findLanguageFromKey)
         .filter('findLanguageRtlFromKey', findLanguageRtlFromKey);
 

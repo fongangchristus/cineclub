@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .controller('SeqGenController', SeqGenController);
 
     SeqGenController.$inject = ['$state', 'SeqGen', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];

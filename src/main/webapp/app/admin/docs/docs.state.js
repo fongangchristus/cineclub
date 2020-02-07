@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .config(stateConfig);
 
     stateConfig.$inject = ['$stateProvider'];

@@ -16,7 +16,7 @@
 logging:
     level:
         ROOT: DEBUG
-        com.itgstore.tierspayant: DEBUG
+        com.itgstore.cineclub: DEBUG
         io.github.jhipster: DEBUG
 
 spring:
@@ -121,7 +121,7 @@ jhipster:
                 token-validity-in-seconds: 86400
                 token-validity-in-seconds-for-remember-me: 2592000
     mail: # specific JHipster mail property, for standard properties see MailProperties
-        from: tierspayant@localhost
+        from: cineclub@localhost
         base-url: http://localhost:4200
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true

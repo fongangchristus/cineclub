@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .factory('DataUtils', DataUtils);
 
     DataUtils.$inject = ['$window'];

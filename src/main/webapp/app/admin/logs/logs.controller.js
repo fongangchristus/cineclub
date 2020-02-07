@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .controller('LogsController', LogsController);
 
     LogsController.$inject = ['LogsService'];

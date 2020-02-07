@@ -18,6 +18,6 @@
     };
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .component('jhiItemCount', jhiItemCount);
 })();

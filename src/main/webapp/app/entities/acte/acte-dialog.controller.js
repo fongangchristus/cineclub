@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .controller('ActeDialogController', ActeDialogController);
 
     ActeDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Acte'];
@@ -32,7 +32,7 @@
         }
 
         function onSaveSuccess (result) {
-            $scope.$emit('tierspayantApp:acteUpdate', result);
+            $scope.$emit('cineclubApp:acteUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }

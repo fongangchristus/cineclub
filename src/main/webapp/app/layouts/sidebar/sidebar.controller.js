@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .controller('SidebarController', SidebarController);
 
     SidebarController.$inject = ['$state', 'Auth', 'Principal', 'ProfileService', 'LoginService'];

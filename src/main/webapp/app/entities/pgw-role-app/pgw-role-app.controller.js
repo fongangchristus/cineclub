@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .controller('PgwRoleAppController', PgwRoleAppController);
 
     PgwRoleAppController.$inject = ['$state', 'PgwRoleApp', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];

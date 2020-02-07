@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .controller('ActeDeleteController',ActeDeleteController);
 
     ActeDeleteController.$inject = ['$uibModalInstance', 'entity', 'Acte'];

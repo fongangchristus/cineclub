@@ -13,7 +13,7 @@
                   '</div>' */
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .component('jhiAlertError', jhiAlertError);
 
     jhiAlertErrorController.$inject = ['$scope', 'toaster', 'AlertService', '$rootScope', '$translate'];

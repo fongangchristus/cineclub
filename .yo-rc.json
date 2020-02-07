@@ -1,13 +1,13 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.itgstore.tierspayant",
+      "packageName": "com.itgstore.cineclub",
       "nativeLanguage": "fr"
     },
     "jhipsterVersion": "4.14.2",
-    "baseName": "tierspayant",
-    "packageName": "com.itgstore.tierspayant",
-    "packageFolder": "com/itgstore/tierspayant",
+    "baseName": "cineclub",
+    "packageName": "com.itgstore.cineclub",
+    "packageFolder": "com/itgstore/cineclub",
     "serverPort": "8080",
     "authenticationType": "jwt",
     "cacheProvider": "no",

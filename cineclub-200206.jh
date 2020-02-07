@@ -1,0 +1,148 @@
+
+
+entity Cinema {
+	libele String required,
+    description String,
+    proprietaire String,
+    lienFacebook String,
+    liensWathsapp String,
+    lienYoutube String
+}
+entity Ville {
+	libele String required,
+    description String
+}
+entity Salle {
+	libele String required,
+  	pathCouverture String ,
+    code String,
+    description String,
+    nombrePlaceTotale Integer,
+    nombrePlaceBalcon Integer,
+    nombrePlaceClasique Integer
+}
+
+entity Adresse {
+	telephone1 String required,
+    telephone2 String,    
+    adresse String,
+    email String,
+    description String,
+    latitude String,
+    longitude String
+}
+entity Film {
+	titre String required,
+  	pathCouverture String required,
+    bandeAnnonce String
+    couverture Blob
+    description String required,
+    resume String ,
+    duree String required,
+    realisateur String required,
+    dateSortie LocalDate
+}
+
+
+entity CategorieFilm {
+	libele String required,
+  	pathCouverture String,
+    couverture Blob,
+    description String
+}
+
+enum Jour {
+	LUNDI, MARDI, MERCREDI, JEUDI, VENDREDI, SAMEDI, DIMANCHE
+}
+
+entity Seance {
+	heureDebut String,
+    heureFin String,
+    description String,
+    code String
+}
+
+
+entity Client {
+    nom String,
+    code String,
+    description String
+}
+
+
+entity Projection {
+	libele String,
+    duree String,
+    code String,
+    description String
+}
+entity PrixTicket {
+    prix Double,
+    code String,
+    description String
+}
+entity Ticket {
+    codePaiement String required,
+    numeroPlace String required,
+    prix Double required,
+    statutTicket Boolean
+}
+entity Reservation {
+	nomClient String,
+	dateReservation LocalDate required,
+    quantite Integer,
+    prixToTale Double required,
+    statutReservation Boolean
+}
+
+entity Formule {
+	libele String,
+	dateReservation LocalDate,
+    code Integer,
+    prixBalcon Double,
+    prixClassique Double,
+    statutFormule Boolean
+}
+
+enum TypePlace {
+	BALCON, CLASSIQUE
+}
+
+enum TypeProjection {
+	AVANT_PREMIERE, CLASSIQUE
+}
+
+relationship ManyToOne {
+    PrixTicket{typePlace} to TypePlace,
+    Ticket{prixTicket} to PrixTicket,
+    Projection{salle} to Salle,
+    Projection{jour} to Jour,
+    Projection{film} to Film,
+    Projection{typeProjection} to TypeProjection,
+    Projection{plageHoraire} to Seance,
+    Salle{ville} to Ville,
+    Film{categorie} to CategorieFilm,
+    Salle{cinema} to Cinema,
+    Ticket{projection} to Projection,
+    Reservation{client} to Client
+
+}
+relationship OneToMany {
+    Reservation{listTicket} to Ticket,
+    Projection{listPrixTicket} to PrixTicket
+}
+relationship OneToOne {
+    Client{adresse} to Adresse,
+    Salle{adresse} to Adresse
+}
+
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+
+

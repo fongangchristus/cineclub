@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .controller('SeqGenDeleteController',SeqGenDeleteController);
 
     SeqGenDeleteController.$inject = ['$uibModalInstance', 'entity', 'SeqGen'];

@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .factory('Base64', Base64);
 
     function Base64 () {

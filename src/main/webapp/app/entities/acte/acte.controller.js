@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .controller('ActeController', ActeController);
 
     ActeController.$inject = ['$state', 'Acte', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];

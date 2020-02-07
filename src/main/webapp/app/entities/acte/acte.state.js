@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .config(stateConfig);
 
     stateConfig.$inject = ['$stateProvider'];
@@ -14,7 +14,7 @@
             url: '/acte?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'tierspayantApp.acte.home.title'
+                pageTitle: 'cineclubApp.acte.home.title'
             },
             views: {
                 'content@app': {
@@ -56,7 +56,7 @@
             url: '/acte/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'tierspayantApp.acte.detail.title'
+                pageTitle: 'cineclubApp.acte.detail.title'
             },
             views: {
                 'content@app': {

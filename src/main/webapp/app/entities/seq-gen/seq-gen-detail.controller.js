@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .controller('SeqGenDetailController', SeqGenDetailController);
 
     SeqGenDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'SeqGen'];

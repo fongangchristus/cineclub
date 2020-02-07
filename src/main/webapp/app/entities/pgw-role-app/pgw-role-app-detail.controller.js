@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .controller('PgwRoleAppDetailController', PgwRoleAppDetailController);
 
     PgwRoleAppDetailController.$inject = ['$scope', '$resource', '$rootScope', '$stateParams', 'previousState', 'entity', 'PgwRoleApp'];

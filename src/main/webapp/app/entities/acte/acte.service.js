@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .factory('Acte', Acte);
 
     Acte.$inject = ['$resource'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .controller('ActeDetailController', ActeDetailController);
 
     ActeDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Acte'];
@@ -13,7 +13,7 @@
         vm.acte = entity;
         vm.previousState = previousState.name;
 
-        var unsubscribe = $rootScope.$on('tierspayantApp:acteUpdate', function(event, result) {
+        var unsubscribe = $rootScope.$on('cineclubApp:acteUpdate', function(event, result) {
             vm.acte = result;
         });
         $scope.$on('$destroy', unsubscribe);

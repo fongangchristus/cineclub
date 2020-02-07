@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .factory('PgwRoleApp', PgwRoleApp);
 
     PgwRoleApp.$inject = ['$resource'];

@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('tierspayantApp')
+        .module('cineclubApp')
         .controller('AuditDetailModalCtrl', AuditDetailModalCtrl);
 
     AuditDetailModalCtrl.$inject = ['$scope', '$uibModalInstance', 'ObjectDiff', 'diff', 'audit'];
