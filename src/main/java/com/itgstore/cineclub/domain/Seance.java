@@ -1,9 +1,12 @@
 package com.itgstore.cineclub.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -31,6 +34,10 @@ public class Seance implements Serializable {
 
     @Column(name = "code")
     private String code;
+
+    @ManyToMany(mappedBy = "listeSeances")
+    @JsonIgnore
+    private Set<Projection> projections = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -91,6 +98,31 @@ public class Seance implements Serializable {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public Set<Projection> getProjections() {
+        return projections;
+    }
+
+    public Seance projections(Set<Projection> projections) {
+        this.projections = projections;
+        return this;
+    }
+
+    public Seance addProjection(Projection projection) {
+        this.projections.add(projection);
+        projection.getListeSeances().add(this);
+        return this;
+    }
+
+    public Seance removeProjection(Projection projection) {
+        this.projections.remove(projection);
+        projection.getListeSeances().remove(this);
+        return this;
+    }
+
+    public void setProjections(Set<Projection> projections) {
+        this.projections = projections;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

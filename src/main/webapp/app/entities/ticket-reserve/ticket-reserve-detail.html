@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span data-translate="cineclubApp.ticketReserve.detail.title">Ticket Reserve</span> {{vm.ticketReserve.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="cineclubApp.ticketReserve.codePaiement">Code Paiement</span></dt>
+        <dd>
+            <span>{{vm.ticketReserve.codePaiement}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.ticketReserve.numeroPlace">Numero Place</span></dt>
+        <dd>
+            <span>{{vm.ticketReserve.numeroPlace}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.ticketReserve.prix">Prix</span></dt>
+        <dd>
+            <span>{{vm.ticketReserve.prix}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.ticketReserve.statutTicket">Statut Ticket</span></dt>
+        <dd>
+            <span>{{vm.ticketReserve.statutTicket}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.ticketReserve.typePlace">Type Place</span></dt>
+        <dd>
+            <span data-translate="{{'cineclubApp.TypePlace.' + vm.ticketReserve.typePlace}}">{{vm.ticketReserve.typePlace}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.ticketReserve.codeSup">Code Sup</span></dt>
+        <dd>
+            <span>{{vm.ticketReserve.codeSup}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.ticketReserve.reservation">Reservation</span></dt>
+        <dd>
+            <a ui-sref="reservation-detail({id:vm.ticketReserve.reservationId})">{{vm.ticketReserve.reservationId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="ticket-reserve-detail.edit({id:vm.ticketReserve.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

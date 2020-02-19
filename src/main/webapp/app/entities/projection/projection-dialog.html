@@ -64,10 +64,8 @@
             </select>
         </div>
         <div class="form-group">
-            <label data-translate="cineclubApp.projection.plageHoraire" for="field_plageHoraire">Plage Horaire</label>
-            <select class="form-control" id="field_plageHoraire" name="plageHoraire" ng-model="vm.projection.plageHoraireId" ng-options="seance.id as seance.id for seance in vm.seances"            >
-                <option value=""></option>
-            </select>
+            <label data-translate="cineclubApp.projection.listeSeances" for="field_listeSeances">Liste Seances</label>
+            <select class="form-control" id="field_listeSeances" multiple name="listeSeances" ng-model="vm.projection.listeSeances" ng-options="seance as seance.id for seance in vm.seances track by seance.id"></select>
         </div>
         <div class="form-group">
             <label data-translate="cineclubApp.projection.salle" for="field_salle">Salle</label>

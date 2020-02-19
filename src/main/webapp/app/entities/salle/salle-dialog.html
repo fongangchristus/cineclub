@@ -70,13 +70,13 @@
         </div>
         <div class="form-group">
             <label data-translate="cineclubApp.salle.ville" for="field_ville">Ville</label>
-            <select class="form-control" id="field_ville" name="ville" ng-model="vm.salle.villeId" ng-options="ville.id as ville.id for ville in vm.villes"            >
+            <select class="form-control" id="field_ville" name="ville" ng-model="vm.salle.villeId" ng-options="ville.id as ville.libele for ville in vm.villes"            >
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
             <label data-translate="cineclubApp.salle.cinema" for="field_cinema">Cinema</label>
-            <select class="form-control" id="field_cinema" name="cinema" ng-model="vm.salle.cinemaId" ng-options="cinema.id as cinema.id for cinema in vm.cinemas"            >
+            <select class="form-control" id="field_cinema" name="cinema" ng-model="vm.salle.cinemaId" ng-options="cinema.id as cinema.libele for cinema in vm.cinemas"            >
                 <option value=""></option>
             </select>
         </div>

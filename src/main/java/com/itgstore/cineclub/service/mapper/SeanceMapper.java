@@ -12,6 +12,8 @@ import org.mapstruct.*;
 public interface SeanceMapper extends EntityMapper<SeanceDTO, Seance> {
 
 
+    @Mapping(target = "projections", ignore = true)
+    Seance toEntity(SeanceDTO seanceDTO);
 
     default Seance fromId(Long id) {
         if (id == null) {

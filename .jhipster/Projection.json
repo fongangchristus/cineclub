@@ -1,12 +1,7 @@
 {
     "fluentMethods": true,
     "relationships": [
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "listPrixTicket",
-            "otherEntityName": "prixTicket",
-            "otherEntityRelationshipName": "projection"
-        },
+
         {
             "relationshipType": "many-to-one",
             "relationshipName": "film",
@@ -14,10 +9,12 @@
             "otherEntityField": "id"
         },
         {
-            "relationshipType": "many-to-one",
-            "relationshipName": "plageHoraire",
+            "relationshipType": "many-to-many",
+            "relationshipName": "listeSeances",
             "otherEntityName": "seance",
-            "otherEntityField": "id"
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "projection"
         },
         {
             "relationshipType": "many-to-one",

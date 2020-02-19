@@ -24,6 +24,14 @@
         <dd>
             <span>{{vm.reservation.statutReservation}}</span>
         </dd>
+        <dt><span data-translate="cineclubApp.reservation.code">Code</span></dt>
+        <dd>
+            <span>{{vm.reservation.code}}</span>
+        </dd>
+        <dt><span data-translate="cineclubApp.reservation.ticket">Ticket</span></dt>
+        <dd>
+            <a ui-sref="ticket-detail({id:vm.reservation.ticketId})">{{vm.reservation.ticketId}}</a>
+        </dd>
         <dt><span data-translate="cineclubApp.reservation.client">Client</span></dt>
         <dd>
             <a ui-sref="client-detail({id:vm.reservation.clientId})">{{vm.reservation.clientId}}</a>

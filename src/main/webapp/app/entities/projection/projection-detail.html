@@ -32,9 +32,11 @@
         <dd>
             <a ui-sref="film-detail({id:vm.projection.filmId})">{{vm.projection.filmId}}</a>
         </dd>
-        <dt><span data-translate="cineclubApp.projection.plageHoraire">Plage Horaire</span></dt>
+        <dt><span data-translate="cineclubApp.projection.listeSeances">Liste Seances</span></dt>
         <dd>
-            <a ui-sref="seance-detail({id:vm.projection.plageHoraireId})">{{vm.projection.plageHoraireId}}</a>
+            <span ng-repeat="listeSeances in vm.projection.listeSeances">
+                <a ui-sref="seance-detail({id: listeSeances.id})">{{listeSeances.id}}</a>{{$last ? '' : ', '}}
+            </span>
         </dd>
         <dt><span data-translate="cineclubApp.projection.salle">Salle</span></dt>
         <dd>

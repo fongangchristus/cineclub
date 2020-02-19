@@ -1,6 +1,14 @@
 {
     "fluentMethods": true,
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "projection",
+            "otherEntityName": "projection",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "listeSeances"
+        }
+    ],
     "fields": [
         {
             "fieldName": "heureDebut",

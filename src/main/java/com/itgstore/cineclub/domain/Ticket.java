@@ -7,6 +7,8 @@ import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.itgstore.cineclub.domain.enumeration.TypePlace;
+
 /**
  * A Ticket.
  */
@@ -22,28 +24,24 @@ public class Ticket implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "code_paiement", nullable = false)
-    private String codePaiement;
-
-    @NotNull
-    @Column(name = "numero_place", nullable = false)
-    private String numeroPlace;
-
-    @NotNull
     @Column(name = "prix", nullable = false)
     private Double prix;
 
-    @Column(name = "statut_ticket")
-    private Boolean statutTicket;
+    @Column(name = "statut_disponibilite")
+    private Boolean statutDisponibilite;
 
-    @ManyToOne
-    private PrixTicket prixTicket;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type_place")
+    private TypePlace typePlace;
+
+    @Column(name = "nombre_ticket_total")
+    private Double nombreTicketTotal;
+
+    @Column(name = "nombre_ticket_restant")
+    private Double nombreTicketRestant;
 
     @ManyToOne
     private Projection projection;
-
-    @ManyToOne
-    private Reservation reservation;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -52,32 +50,6 @@ public class Ticket implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getCodePaiement() {
-        return codePaiement;
-    }
-
-    public Ticket codePaiement(String codePaiement) {
-        this.codePaiement = codePaiement;
-        return this;
-    }
-
-    public void setCodePaiement(String codePaiement) {
-        this.codePaiement = codePaiement;
-    }
-
-    public String getNumeroPlace() {
-        return numeroPlace;
-    }
-
-    public Ticket numeroPlace(String numeroPlace) {
-        this.numeroPlace = numeroPlace;
-        return this;
-    }
-
-    public void setNumeroPlace(String numeroPlace) {
-        this.numeroPlace = numeroPlace;
     }
 
     public Double getPrix() {
@@ -93,30 +65,56 @@ public class Ticket implements Serializable {
         this.prix = prix;
     }
 
-    public Boolean isStatutTicket() {
-        return statutTicket;
+    public Boolean isStatutDisponibilite() {
+        return statutDisponibilite;
     }
 
-    public Ticket statutTicket(Boolean statutTicket) {
-        this.statutTicket = statutTicket;
+    public Ticket statutDisponibilite(Boolean statutDisponibilite) {
+        this.statutDisponibilite = statutDisponibilite;
         return this;
     }
 
-    public void setStatutTicket(Boolean statutTicket) {
-        this.statutTicket = statutTicket;
+    public void setStatutDisponibilite(Boolean statutDisponibilite) {
+        this.statutDisponibilite = statutDisponibilite;
     }
 
-    public PrixTicket getPrixTicket() {
-        return prixTicket;
+    public TypePlace getTypePlace() {
+        return typePlace;
     }
 
-    public Ticket prixTicket(PrixTicket prixTicket) {
-        this.prixTicket = prixTicket;
+    public Ticket typePlace(TypePlace typePlace) {
+        this.typePlace = typePlace;
         return this;
     }
 
-    public void setPrixTicket(PrixTicket prixTicket) {
-        this.prixTicket = prixTicket;
+    public void setTypePlace(TypePlace typePlace) {
+        this.typePlace = typePlace;
+    }
+
+    public Double getNombreTicketTotal() {
+        return nombreTicketTotal;
+    }
+
+    public Ticket nombreTicketTotal(Double nombreTicketTotal) {
+        this.nombreTicketTotal = nombreTicketTotal;
+        return this;
+    }
+
+    public void setNombreTicketTotal(Double nombreTicketTotal) {
+        this.nombreTicketTotal = nombreTicketTotal;
+    }
+
+    public Double getNombreTicketRestant() {
+        return nombreTicketRestant;
+    }
+
+    public Ticket nombreTicketRestant(Double nombreTicketRestant) {
+        this.nombreTicketRestant = nombreTicketRestant;
+        return this;
+    }
+
+    public void setNombreTicketRestant(Double nombreTicketRestant) {
+        this.nombreTicketRestant = nombreTicketRestant;
     }
 
     public Projection getProjection() {
@@ -130,19 +128,6 @@ public class Ticket implements Serializable {
 
     public void setProjection(Projection projection) {
         this.projection = projection;
-    }
-
-    public Reservation getReservation() {
-        return reservation;
-    }
-
-    public Ticket reservation(Reservation reservation) {
-        this.reservation = reservation;
-        return this;
-    }
-
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -170,10 +155,11 @@ public class Ticket implements Serializable {
     public String toString() {
         return "Ticket{" +
             "id=" + getId() +
-            ", codePaiement='" + getCodePaiement() + "'" +
-            ", numeroPlace='" + getNumeroPlace() + "'" +
             ", prix=" + getPrix() +
-            ", statutTicket='" + isStatutTicket() + "'" +
+            ", statutDisponibilite='" + isStatutDisponibilite() + "'" +
+            ", typePlace='" + getTypePlace() + "'" +
+            ", nombreTicketTotal=" + getNombreTicketTotal() +
+            ", nombreTicketRestant=" + getNombreTicketRestant() +
             "}";
     }
 }

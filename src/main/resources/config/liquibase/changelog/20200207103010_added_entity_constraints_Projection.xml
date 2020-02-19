@@ -14,12 +14,17 @@
                                  referencedColumnNames="id"
                                  referencedTableName="film"/>
 
-        <addForeignKeyConstraint baseColumnNames="plage_horaire_id"
-                                 baseTableName="projection"
-                                 constraintName="fk_projection_plage_horaire_id"
+        <addForeignKeyConstraint baseColumnNames="projections_id"
+                                 baseTableName="projection_liste_seances"
+                                 constraintName="fk_projection_liste_seances_projections_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="projection"/>
+        <addForeignKeyConstraint baseColumnNames="liste_seances_id"
+                                 baseTableName="projection_liste_seances"
+                                 constraintName="fk_projection_liste_seances_liste_seances_id"
                                  referencedColumnNames="id"
                                  referencedTableName="seance"/>
-
+        
         <addForeignKeyConstraint baseColumnNames="salle_id"
                                  baseTableName="projection"
                                  constraintName="fk_projection_salle_id"

@@ -24,6 +24,8 @@
                     <th jh-sort-by="quantite"><span data-translate="cineclubApp.reservation.quantite">Quantite</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="prixToTale"><span data-translate="cineclubApp.reservation.prixToTale">Prix To Tale</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="statutReservation"><span data-translate="cineclubApp.reservation.statutReservation">Statut Reservation</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="code"><span data-translate="cineclubApp.reservation.code">Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ticketId"><span data-translate="cineclubApp.reservation.ticket">Ticket</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="clientId"><span data-translate="cineclubApp.reservation.client">Client</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
@@ -36,6 +38,10 @@
                     <td>{{reservation.quantite}}</td>
                     <td>{{reservation.prixToTale}}</td>
                     <td>{{reservation.statutReservation}}</td>
+                    <td>{{reservation.code}}</td>
+                    <td>
+                        <a ui-sref="ticket-detail({id:reservation.ticketId})">{{reservation.ticketId}}</a>
+                    </td>
                     <td>
                         <a ui-sref="client-detail({id:reservation.clientId})">{{reservation.clientId}}</a>
                     </td>

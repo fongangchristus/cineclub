@@ -27,6 +27,10 @@ public class ReservationDTO implements Serializable {
 
     private Boolean statutReservation;
 
+    private String code;
+
+    private Long ticketId;
+
     private Long clientId;
 
     public Long getId() {
@@ -77,6 +81,22 @@ public class ReservationDTO implements Serializable {
         this.statutReservation = statutReservation;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public Long getTicketId() {
+        return ticketId;
+    }
+
+    public void setTicketId(Long ticketId) {
+        this.ticketId = ticketId;
+    }
+
     public Long getClientId() {
         return clientId;
     }
@@ -115,6 +135,7 @@ public class ReservationDTO implements Serializable {
             ", quantite=" + getQuantite() +
             ", prixToTale=" + getPrixToTale() +
             ", statutReservation='" + isStatutReservation() + "'" +
+            ", code='" + getCode() + "'" +
             "}";
     }
 }

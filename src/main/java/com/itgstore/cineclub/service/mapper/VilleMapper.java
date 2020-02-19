@@ -10,7 +10,7 @@ import org.mapstruct.*;
  */
 @Mapper(componentModel = "spring", uses = {PaysMapper.class})
 public interface VilleMapper extends EntityMapper<VilleDTO, Ville> {
-
+    @Mapping(source = "pays.libele", target = "paysLibele")
     @Mapping(source = "pays.id", target = "paysId")
     VilleDTO toDto(Ville ville);
 

@@ -34,7 +34,7 @@
 
         <div class="form-group">
             <label data-translate="cineclubApp.ville.pays" for="field_pays">Pays</label>
-            <select class="form-control" id="field_pays" name="pays" ng-model="vm.ville.paysId" ng-options="pays.id as pays.id for pays in vm.pays"            >
+            <select class="form-control" id="field_pays" name="pays" ng-model="vm.ville.paysId" ng-options="pays.id as pays.libele for pays in vm.pays"            >
                 <option value=""></option>
             </select>
         </div>

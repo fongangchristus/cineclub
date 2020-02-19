@@ -1,0 +1,28 @@
+
+{
+    "cineclubApp": {
+        "ticketReserve" : {
+            "home": {
+                "title": "Ticket Reserves",
+                "createLabel": "Create a new Ticket Reserve",
+                "createOrEditLabel": "Create or edit a Ticket Reserve"
+            },
+            "created": "A new Ticket Reserve is created with identifier {{ param }}",
+            "updated": "A Ticket Reserve is updated with identifier {{ param }}",
+            "deleted": "A Ticket Reserve is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Ticket Reserve {{ id }}?"
+            },
+            "detail": {
+                "title": "Ticket Reserve"
+            },
+            "codePaiement": "Code Paiement",
+            "numeroPlace": "Numero Place",
+            "prix": "Prix",
+            "statutTicket": "Statut Ticket",
+            "typePlace": "Type Place",
+            "codeSup": "Code Sup",
+            "reservation": "Reservation"
+        }
+    }
+}

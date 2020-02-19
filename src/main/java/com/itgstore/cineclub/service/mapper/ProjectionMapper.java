@@ -12,13 +12,10 @@ import org.mapstruct.*;
 public interface ProjectionMapper extends EntityMapper<ProjectionDTO, Projection> {
 
     @Mapping(source = "film.id", target = "filmId")
-    @Mapping(source = "plageHoraire.id", target = "plageHoraireId")
     @Mapping(source = "salle.id", target = "salleId")
     ProjectionDTO toDto(Projection projection);
 
-    @Mapping(target = "listPrixTickets", ignore = true)
     @Mapping(source = "filmId", target = "film")
-    @Mapping(source = "plageHoraireId", target = "plageHoraire")
     @Mapping(source = "salleId", target = "salle")
     Projection toEntity(ProjectionDTO projectionDTO);
 

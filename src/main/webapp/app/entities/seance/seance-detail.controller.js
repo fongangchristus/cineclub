@@ -5,9 +5,9 @@
         .module('cineclubApp')
         .controller('SeanceDetailController', SeanceDetailController);
 
-    SeanceDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Seance'];
+    SeanceDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Seance', 'Projection'];
 
-    function SeanceDetailController($scope, $rootScope, $stateParams, previousState, entity, Seance) {
+    function SeanceDetailController($scope, $rootScope, $stateParams, previousState, entity, Seance, Projection) {
         var vm = this;
 
         vm.seance = entity;

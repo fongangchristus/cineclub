@@ -5,14 +5,15 @@
         .module('cineclubApp')
         .controller('SeanceDialogController', SeanceDialogController);
 
-    SeanceDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Seance'];
+    SeanceDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Seance', 'Projection'];
 
-    function SeanceDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Seance) {
+    function SeanceDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Seance, Projection) {
         var vm = this;
 
         vm.seance = entity;
         vm.clear = clear;
         vm.save = save;
+        vm.projections = Projection.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

@@ -42,9 +42,16 @@ public class Reservation implements Serializable {
     @Column(name = "statut_reservation")
     private Boolean statutReservation;
 
-    @OneToMany(mappedBy = "reservation")
+    @Column(name = "code")
+    private String code;
+
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Ticket ticket;
+
+    @OneToMany(mappedBy = "ticketReserve")
     @JsonIgnore
-    private Set<Ticket> listTickets = new HashSet<>();
+    private Set<TicketReserve> listTicketReserves = new HashSet<>();
 
     @ManyToOne
     private Client client;
@@ -123,29 +130,55 @@ public class Reservation implements Serializable {
         this.statutReservation = statutReservation;
     }
 
-    public Set<Ticket> getListTickets() {
-        return listTickets;
+    public String getCode() {
+        return code;
     }
 
-    public Reservation listTickets(Set<Ticket> tickets) {
-        this.listTickets = tickets;
+    public Reservation code(String code) {
+        this.code = code;
         return this;
     }
 
-    public Reservation addListTicket(Ticket ticket) {
-        this.listTickets.add(ticket);
-        ticket.setReservation(this);
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public Ticket getTicket() {
+        return ticket;
+    }
+
+    public Reservation ticket(Ticket ticket) {
+        this.ticket = ticket;
         return this;
     }
 
-    public Reservation removeListTicket(Ticket ticket) {
-        this.listTickets.remove(ticket);
-        ticket.setReservation(null);
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
+    }
+
+    public Set<TicketReserve> getListTicketReserves() {
+        return listTicketReserves;
+    }
+
+    public Reservation listTicketReserves(Set<TicketReserve> ticketReserves) {
+        this.listTicketReserves = ticketReserves;
         return this;
     }
 
-    public void setListTickets(Set<Ticket> tickets) {
-        this.listTickets = tickets;
+    public Reservation addListTicketReserve(TicketReserve ticketReserve) {
+        this.listTicketReserves.add(ticketReserve);
+        ticketReserve.setTicketReserve(this);
+        return this;
+    }
+
+    public Reservation removeListTicketReserve(TicketReserve ticketReserve) {
+        this.listTicketReserves.remove(ticketReserve);
+        ticketReserve.setTicketReserve(null);
+        return this;
+    }
+
+    public void setListTicketReserves(Set<TicketReserve> ticketReserves) {
+        this.listTicketReserves = ticketReserves;
     }
 
     public Client getClient() {
@@ -191,6 +224,7 @@ public class Reservation implements Serializable {
             ", quantite=" + getQuantite() +
             ", prixToTale=" + getPrixToTale() +
             ", statutReservation='" + isStatutReservation() + "'" +
+            ", code='" + getCode() + "'" +
             "}";
     }
 }

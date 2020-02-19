@@ -14,30 +14,6 @@
                     ng-model="vm.ticket.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="cineclubApp.ticket.codePaiement" for="field_codePaiement">Code Paiement</label>
-            <input type="text" class="form-control" name="codePaiement" id="field_codePaiement"
-                    ng-model="vm.ticket.codePaiement"
-                    required/>
-            <div ng-show="editForm.codePaiement.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.codePaiement.$error.required" data-translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" data-translate="cineclubApp.ticket.numeroPlace" for="field_numeroPlace">Numero Place</label>
-            <input type="text" class="form-control" name="numeroPlace" id="field_numeroPlace"
-                    ng-model="vm.ticket.numeroPlace"
-                    required/>
-            <div ng-show="editForm.numeroPlace.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.numeroPlace.$error.required" data-translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="control-label" data-translate="cineclubApp.ticket.prix" for="field_prix">Prix</label>
             <input type="number" class="form-control" name="prix" id="field_prix"
                     ng-model="vm.ticket.prix"
@@ -54,26 +30,33 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" data-translate="cineclubApp.ticket.statutTicket" for="field_statutTicket">Statut Ticket</label>
-                <input type="checkbox" name="statutTicket" id="field_statutTicket"
-                          ng-model="vm.ticket.statutTicket"/>
+            <label class="control-label" data-translate="cineclubApp.ticket.statutDisponibilite" for="field_statutDisponibilite">Statut Disponibilite</label>
+                <input type="checkbox" name="statutDisponibilite" id="field_statutDisponibilite"
+                          ng-model="vm.ticket.statutDisponibilite"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.ticket.typePlace" for="field_typePlace">Type Place</label>
+            <select class="form-control" name="typePlace" ng-model="vm.ticket.typePlace" id="field_typePlace">
+                <option value="BALCON" data-translate="cineclubApp.TypePlace.BALCON">BALCON</option>
+                <option value="CLASSIQUE" data-translate="cineclubApp.TypePlace.CLASSIQUE">CLASSIQUE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.ticket.nombreTicketTotal" for="field_nombreTicketTotal">Nombre Ticket Total</label>
+            <input type="number" class="form-control" name="nombreTicketTotal" id="field_nombreTicketTotal"
+                    ng-model="vm.ticket.nombreTicketTotal"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.ticket.nombreTicketRestant" for="field_nombreTicketRestant">Nombre Ticket Restant</label>
+            <input type="number" class="form-control" name="nombreTicketRestant" id="field_nombreTicketRestant"
+                    ng-model="vm.ticket.nombreTicketRestant"
+                    />
         </div>
 
         <div class="form-group">
-            <label data-translate="cineclubApp.ticket.prixTicket" for="field_prixTicket">Prix Ticket</label>
-            <select class="form-control" id="field_prixTicket" name="prixTicket" ng-model="vm.ticket.prixTicketId" ng-options="prixTicket.id as prixTicket.id for prixTicket in vm.prixtickets"            >
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
             <label data-translate="cineclubApp.ticket.projection" for="field_projection">Projection</label>
             <select class="form-control" id="field_projection" name="projection" ng-model="vm.ticket.projectionId" ng-options="projection.id as projection.id for projection in vm.projections"            >
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label data-translate="cineclubApp.ticket.reservation" for="field_reservation">Reservation</label>
-            <select class="form-control" id="field_reservation" name="reservation" ng-model="vm.ticket.reservationId" ng-options="reservation.id as reservation.id for reservation in vm.reservations"            >
                 <option value=""></option>
             </select>
         </div>

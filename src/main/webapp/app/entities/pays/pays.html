@@ -1,21 +1,32 @@
-<div>
-    <h2 data-translate="cineclubApp.pays.home.title">Pays</h2>
-    <jhi-alert></jhi-alert>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="pays.new" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span  data-translate="cineclubApp.pays.home.createLabel">
-                        Create new Pays
-                    </span>
-                </button>
-            </div>
+
+<div class="row top_tiles">
+        <div class="x_panel">
+            <h2 data-translate="cineclubApp.pays.home.title">Pays</h2>
+           <!-- <ul _ngcontent-jcn-c5="" class="breadcrumb">
+                <li _ngcontent-jcn-c5="" class="breadcrumb-item">
+                    <a _ngcontent-jcn-c5="" href="/angular/default/dashboard/analytics" class="ng-star-inserted"><i _ngcontent-jcn-c5="" class="feather icon-home"></i></a>
+                <li _ngcontent-jcn-c5="" class="breadcrumb-item ng-star-inserted"><a _ngcontent-jcn-c5="" href="javascript:">Utilisateurs</a></li>
+                <li _ngcontent-jcn-c5="" class="breadcrumb-item ng-star-inserted"><a _ngcontent-jcn-c5="" href="/angular/default/dashboard/default">Default</a></li>
+            </ul>-->
         </div>
-    </div>
-    <br/>
+    <div class="x_panel">
+        <div class="x_title">
+            <jhi-alert></jhi-alert>
+            <ul class="nav navbar-right panel_toolbox">
+                <button class="btn btn-primary btn-add" ui-sref="pays.new">
+                    <span class="glyphicon glyphicon-plus"></span> <span
+                    data-translate="cineclubApp.pays.home.createLabel">Create a
+							new Country</span>
+                </button>
+
+            </ul>
+            <div class="clearfix"></div>
+
+        </div>
+        <div class="x_content">
+
     <div class="table-responsive">
-        <table class="jh-table table table-striped">
+        <table class="jh-table table table-striped jambo_table">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>

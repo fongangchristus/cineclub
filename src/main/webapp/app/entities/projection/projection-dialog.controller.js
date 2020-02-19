@@ -5,15 +5,14 @@
         .module('cineclubApp')
         .controller('ProjectionDialogController', ProjectionDialogController);
 
-    ProjectionDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Projection', 'PrixTicket', 'Film', 'Seance', 'Salle'];
+    ProjectionDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Projection', 'Film', 'Seance', 'Salle'];
 
-    function ProjectionDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Projection, PrixTicket, Film, Seance, Salle) {
+    function ProjectionDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Projection, Film, Seance, Salle) {
         var vm = this;
 
         vm.projection = entity;
         vm.clear = clear;
         vm.save = save;
-        vm.prixtickets = PrixTicket.query();
         vm.films = Film.query();
         vm.seances = Seance.query();
         vm.salles = Salle.query();

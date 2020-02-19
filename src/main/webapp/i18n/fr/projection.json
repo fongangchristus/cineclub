@@ -22,9 +22,8 @@
             "jour": "Jour",
             "typeProjection": "Type Projection",
             "description": "Description",
-            "listPrixTicket": "List Prix Ticket",
             "film": "Film",
-            "plageHoraire": "Plage Horaire",
+            "listeSeances": "Liste Seances",
             "salle": "Salle"
         }
     }

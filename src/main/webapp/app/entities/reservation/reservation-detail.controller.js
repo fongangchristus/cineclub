@@ -5,9 +5,9 @@
         .module('cineclubApp')
         .controller('ReservationDetailController', ReservationDetailController);
 
-    ReservationDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Reservation', 'Ticket', 'Client'];
+    ReservationDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Reservation', 'Ticket', 'TicketReserve', 'Client'];
 
-    function ReservationDetailController($scope, $rootScope, $stateParams, previousState, entity, Reservation, Ticket, Client) {
+    function ReservationDetailController($scope, $rootScope, $stateParams, previousState, entity, Reservation, Ticket, TicketReserve, Client) {
         var vm = this;
 
         vm.reservation = entity;

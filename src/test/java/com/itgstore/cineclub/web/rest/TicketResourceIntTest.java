@@ -32,6 +32,7 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import com.itgstore.cineclub.domain.enumeration.TypePlace;
 /**
  * Test class for the TicketResource REST controller.
  *
@@ -41,17 +42,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = CineclubApp.class)
 public class TicketResourceIntTest {
 
-    private static final String DEFAULT_CODE_PAIEMENT = "AAAAAAAAAA";
-    private static final String UPDATED_CODE_PAIEMENT = "BBBBBBBBBB";
-
-    private static final String DEFAULT_NUMERO_PLACE = "AAAAAAAAAA";
-    private static final String UPDATED_NUMERO_PLACE = "BBBBBBBBBB";
-
     private static final Double DEFAULT_PRIX = 1D;
     private static final Double UPDATED_PRIX = 2D;
 
-    private static final Boolean DEFAULT_STATUT_TICKET = false;
-    private static final Boolean UPDATED_STATUT_TICKET = true;
+    private static final Boolean DEFAULT_STATUT_DISPONIBILITE = false;
+    private static final Boolean UPDATED_STATUT_DISPONIBILITE = true;
+
+    private static final TypePlace DEFAULT_TYPE_PLACE = TypePlace.BALCON;
+    private static final TypePlace UPDATED_TYPE_PLACE = TypePlace.CLASSIQUE;
+
+    private static final Double DEFAULT_NOMBRE_TICKET_TOTAL = 1D;
+    private static final Double UPDATED_NOMBRE_TICKET_TOTAL = 2D;
+
+    private static final Double DEFAULT_NOMBRE_TICKET_RESTANT = 1D;
+    private static final Double UPDATED_NOMBRE_TICKET_RESTANT = 2D;
 
     @Autowired
     private TicketRepository ticketRepository;
@@ -97,10 +101,11 @@ public class TicketResourceIntTest {
      */
     public static Ticket createEntity(EntityManager em) {
         Ticket ticket = new Ticket()
-            .codePaiement(DEFAULT_CODE_PAIEMENT)
-            .numeroPlace(DEFAULT_NUMERO_PLACE)
             .prix(DEFAULT_PRIX)
-            .statutTicket(DEFAULT_STATUT_TICKET);
+            .statutDisponibilite(DEFAULT_STATUT_DISPONIBILITE)
+            .typePlace(DEFAULT_TYPE_PLACE)
+            .nombreTicketTotal(DEFAULT_NOMBRE_TICKET_TOTAL)
+            .nombreTicketRestant(DEFAULT_NOMBRE_TICKET_RESTANT);
         return ticket;
     }
 
@@ -125,10 +130,11 @@ public class TicketResourceIntTest {
         List<Ticket> ticketList = ticketRepository.findAll();
         assertThat(ticketList).hasSize(databaseSizeBeforeCreate + 1);
         Ticket testTicket = ticketList.get(ticketList.size() - 1);
-        assertThat(testTicket.getCodePaiement()).isEqualTo(DEFAULT_CODE_PAIEMENT);
-        assertThat(testTicket.getNumeroPlace()).isEqualTo(DEFAULT_NUMERO_PLACE);
         assertThat(testTicket.getPrix()).isEqualTo(DEFAULT_PRIX);
-        assertThat(testTicket.isStatutTicket()).isEqualTo(DEFAULT_STATUT_TICKET);
+        assertThat(testTicket.isStatutDisponibilite()).isEqualTo(DEFAULT_STATUT_DISPONIBILITE);
+        assertThat(testTicket.getTypePlace()).isEqualTo(DEFAULT_TYPE_PLACE);
+        assertThat(testTicket.getNombreTicketTotal()).isEqualTo(DEFAULT_NOMBRE_TICKET_TOTAL);
+        assertThat(testTicket.getNombreTicketRestant()).isEqualTo(DEFAULT_NOMBRE_TICKET_RESTANT);
     }
 
     @Test
@@ -149,44 +155,6 @@ public class TicketResourceIntTest {
         // Validate the Ticket in the database
         List<Ticket> ticketList = ticketRepository.findAll();
         assertThat(ticketList).hasSize(databaseSizeBeforeCreate);
-    }
-
-    @Test
-    @Transactional
-    public void checkCodePaiementIsRequired() throws Exception {
-        int databaseSizeBeforeTest = ticketRepository.findAll().size();
-        // set the field null
-        ticket.setCodePaiement(null);
-
-        // Create the Ticket, which fails.
-        TicketDTO ticketDTO = ticketMapper.toDto(ticket);
-
-        restTicketMockMvc.perform(post("/api/tickets")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(ticketDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<Ticket> ticketList = ticketRepository.findAll();
-        assertThat(ticketList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkNumeroPlaceIsRequired() throws Exception {
-        int databaseSizeBeforeTest = ticketRepository.findAll().size();
-        // set the field null
-        ticket.setNumeroPlace(null);
-
-        // Create the Ticket, which fails.
-        TicketDTO ticketDTO = ticketMapper.toDto(ticket);
-
-        restTicketMockMvc.perform(post("/api/tickets")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(ticketDTO)))
-            .andExpect(status().isBadRequest());
-
-        List<Ticket> ticketList = ticketRepository.findAll();
-        assertThat(ticketList).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -219,10 +187,11 @@ public class TicketResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(ticket.getId().intValue())))
-            .andExpect(jsonPath("$.[*].codePaiement").value(hasItem(DEFAULT_CODE_PAIEMENT.toString())))
-            .andExpect(jsonPath("$.[*].numeroPlace").value(hasItem(DEFAULT_NUMERO_PLACE.toString())))
             .andExpect(jsonPath("$.[*].prix").value(hasItem(DEFAULT_PRIX.doubleValue())))
-            .andExpect(jsonPath("$.[*].statutTicket").value(hasItem(DEFAULT_STATUT_TICKET.booleanValue())));
+            .andExpect(jsonPath("$.[*].statutDisponibilite").value(hasItem(DEFAULT_STATUT_DISPONIBILITE.booleanValue())))
+            .andExpect(jsonPath("$.[*].typePlace").value(hasItem(DEFAULT_TYPE_PLACE.toString())))
+            .andExpect(jsonPath("$.[*].nombreTicketTotal").value(hasItem(DEFAULT_NOMBRE_TICKET_TOTAL.doubleValue())))
+            .andExpect(jsonPath("$.[*].nombreTicketRestant").value(hasItem(DEFAULT_NOMBRE_TICKET_RESTANT.doubleValue())));
     }
 
     @Test
@@ -236,10 +205,11 @@ public class TicketResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(ticket.getId().intValue()))
-            .andExpect(jsonPath("$.codePaiement").value(DEFAULT_CODE_PAIEMENT.toString()))
-            .andExpect(jsonPath("$.numeroPlace").value(DEFAULT_NUMERO_PLACE.toString()))
             .andExpect(jsonPath("$.prix").value(DEFAULT_PRIX.doubleValue()))
-            .andExpect(jsonPath("$.statutTicket").value(DEFAULT_STATUT_TICKET.booleanValue()));
+            .andExpect(jsonPath("$.statutDisponibilite").value(DEFAULT_STATUT_DISPONIBILITE.booleanValue()))
+            .andExpect(jsonPath("$.typePlace").value(DEFAULT_TYPE_PLACE.toString()))
+            .andExpect(jsonPath("$.nombreTicketTotal").value(DEFAULT_NOMBRE_TICKET_TOTAL.doubleValue()))
+            .andExpect(jsonPath("$.nombreTicketRestant").value(DEFAULT_NOMBRE_TICKET_RESTANT.doubleValue()));
     }
 
     @Test
@@ -262,10 +232,11 @@ public class TicketResourceIntTest {
         // Disconnect from session so that the updates on updatedTicket are not directly saved in db
         em.detach(updatedTicket);
         updatedTicket
-            .codePaiement(UPDATED_CODE_PAIEMENT)
-            .numeroPlace(UPDATED_NUMERO_PLACE)
             .prix(UPDATED_PRIX)
-            .statutTicket(UPDATED_STATUT_TICKET);
+            .statutDisponibilite(UPDATED_STATUT_DISPONIBILITE)
+            .typePlace(UPDATED_TYPE_PLACE)
+            .nombreTicketTotal(UPDATED_NOMBRE_TICKET_TOTAL)
+            .nombreTicketRestant(UPDATED_NOMBRE_TICKET_RESTANT);
         TicketDTO ticketDTO = ticketMapper.toDto(updatedTicket);
 
         restTicketMockMvc.perform(put("/api/tickets")
@@ -277,10 +248,11 @@ public class TicketResourceIntTest {
         List<Ticket> ticketList = ticketRepository.findAll();
         assertThat(ticketList).hasSize(databaseSizeBeforeUpdate);
         Ticket testTicket = ticketList.get(ticketList.size() - 1);
-        assertThat(testTicket.getCodePaiement()).isEqualTo(UPDATED_CODE_PAIEMENT);
-        assertThat(testTicket.getNumeroPlace()).isEqualTo(UPDATED_NUMERO_PLACE);
         assertThat(testTicket.getPrix()).isEqualTo(UPDATED_PRIX);
-        assertThat(testTicket.isStatutTicket()).isEqualTo(UPDATED_STATUT_TICKET);
+        assertThat(testTicket.isStatutDisponibilite()).isEqualTo(UPDATED_STATUT_DISPONIBILITE);
+        assertThat(testTicket.getTypePlace()).isEqualTo(UPDATED_TYPE_PLACE);
+        assertThat(testTicket.getNombreTicketTotal()).isEqualTo(UPDATED_NOMBRE_TICKET_TOTAL);
+        assertThat(testTicket.getNombreTicketRestant()).isEqualTo(UPDATED_NOMBRE_TICKET_RESTANT);
     }
 
     @Test

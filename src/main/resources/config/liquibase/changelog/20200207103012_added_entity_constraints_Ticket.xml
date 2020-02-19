@@ -8,23 +8,11 @@
     -->
     <changeSet id="20200207103012-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="prix_ticket_id"
-                                 baseTableName="ticket"
-                                 constraintName="fk_ticket_prix_ticket_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="prix_ticket"/>
-
         <addForeignKeyConstraint baseColumnNames="projection_id"
                                  baseTableName="ticket"
                                  constraintName="fk_ticket_projection_id"
                                  referencedColumnNames="id"
                                  referencedTableName="projection"/>
-
-        <addForeignKeyConstraint baseColumnNames="reservation_id"
-                                 baseTableName="ticket"
-                                 constraintName="fk_ticket_reservation_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="reservation"/>
 
     </changeSet>
 </databaseChangeLog>

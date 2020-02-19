@@ -17,7 +17,7 @@
                 pageTitle: 'cineclubApp.ticket.home.title'
             },
             views: {
-                'content@app': {
+                'content@': {
                     templateUrl: 'app/entities/ticket/tickets.html',
                     controller: 'TicketController',
                     controllerAs: 'vm'
@@ -46,6 +46,7 @@
                 }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('ticket');
+                    $translatePartialLoader.addPart('typePlace');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
@@ -59,7 +60,7 @@
                 pageTitle: 'cineclubApp.ticket.detail.title'
             },
             views: {
-                'content@app': {
+                'content@': {
                     templateUrl: 'app/entities/ticket/ticket-detail.html',
                     controller: 'TicketDetailController',
                     controllerAs: 'vm'
@@ -68,6 +69,7 @@
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('ticket');
+                    $translatePartialLoader.addPart('typePlace');
                     return $translate.refresh();
                 }],
                 entity: ['$stateParams', 'Ticket', function($stateParams, Ticket) {
@@ -124,10 +126,11 @@
                     resolve: {
                         entity: function () {
                             return {
-                                codePaiement: null,
-                                numeroPlace: null,
                                 prix: null,
-                                statutTicket: null,
+                                statutDisponibilite: null,
+                                typePlace: null,
+                                nombreTicketTotal: null,
+                                nombreTicketRestant: null,
                                 id: null
                             };
                         }

@@ -5,17 +5,15 @@
         .module('cineclubApp')
         .controller('TicketDialogController', TicketDialogController);
 
-    TicketDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Ticket', 'PrixTicket', 'Projection', 'Reservation'];
+    TicketDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Ticket', 'Projection'];
 
-    function TicketDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Ticket, PrixTicket, Projection, Reservation) {
+    function TicketDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Ticket, Projection) {
         var vm = this;
 
         vm.ticket = entity;
         vm.clear = clear;
         vm.save = save;
-        vm.prixtickets = PrixTicket.query();
         vm.projections = Projection.query();
-        vm.reservations = Reservation.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

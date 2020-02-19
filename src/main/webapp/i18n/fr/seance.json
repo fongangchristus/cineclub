@@ -19,7 +19,8 @@
             "heureDebut": "Heure Debut",
             "heureFin": "Heure Fin",
             "description": "Description",
-            "code": "Code"
+            "code": "Code",
+            "projection": "Projection"
         }
     }
 }

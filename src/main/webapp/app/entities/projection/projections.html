@@ -26,7 +26,6 @@
                     <th jh-sort-by="typeProjection"><span data-translate="cineclubApp.projection.typeProjection">Type Projection</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="description"><span data-translate="cineclubApp.projection.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="filmId"><span data-translate="cineclubApp.projection.film">Film</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="plageHoraireId"><span data-translate="cineclubApp.projection.plageHoraire">Plage Horaire</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="salleId"><span data-translate="cineclubApp.projection.salle">Salle</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
@@ -42,9 +41,6 @@
                     <td>{{projection.description}}</td>
                     <td>
                         <a ui-sref="film-detail({id:projection.filmId})">{{projection.filmId}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="seance-detail({id:projection.plageHoraireId})">{{projection.plageHoraireId}}</a>
                     </td>
                     <td>
                         <a ui-sref="salle-detail({id:projection.salleId})">{{projection.salleId}}</a>

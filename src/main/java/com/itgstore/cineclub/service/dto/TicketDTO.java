@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Objects;
+import com.itgstore.cineclub.domain.enumeration.TypePlace;
 
 /**
  * A DTO for the Ticket entity.
@@ -15,21 +16,17 @@ public class TicketDTO implements Serializable {
     private Long id;
 
     @NotNull
-    private String codePaiement;
-
-    @NotNull
-    private String numeroPlace;
-
-    @NotNull
     private Double prix;
 
-    private Boolean statutTicket;
+    private Boolean statutDisponibilite;
 
-    private Long prixTicketId;
+    private TypePlace typePlace;
+
+    private Double nombreTicketTotal;
+
+    private Double nombreTicketRestant;
 
     private Long projectionId;
-
-    private Long reservationId;
 
     public Long getId() {
         return id;
@@ -37,22 +34,6 @@ public class TicketDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getCodePaiement() {
-        return codePaiement;
-    }
-
-    public void setCodePaiement(String codePaiement) {
-        this.codePaiement = codePaiement;
-    }
-
-    public String getNumeroPlace() {
-        return numeroPlace;
-    }
-
-    public void setNumeroPlace(String numeroPlace) {
-        this.numeroPlace = numeroPlace;
     }
 
     public Double getPrix() {
@@ -63,20 +44,36 @@ public class TicketDTO implements Serializable {
         this.prix = prix;
     }
 
-    public Boolean isStatutTicket() {
-        return statutTicket;
+    public Boolean isStatutDisponibilite() {
+        return statutDisponibilite;
     }
 
-    public void setStatutTicket(Boolean statutTicket) {
-        this.statutTicket = statutTicket;
+    public void setStatutDisponibilite(Boolean statutDisponibilite) {
+        this.statutDisponibilite = statutDisponibilite;
     }
 
-    public Long getPrixTicketId() {
-        return prixTicketId;
+    public TypePlace getTypePlace() {
+        return typePlace;
     }
 
-    public void setPrixTicketId(Long prixTicketId) {
-        this.prixTicketId = prixTicketId;
+    public void setTypePlace(TypePlace typePlace) {
+        this.typePlace = typePlace;
+    }
+
+    public Double getNombreTicketTotal() {
+        return nombreTicketTotal;
+    }
+
+    public void setNombreTicketTotal(Double nombreTicketTotal) {
+        this.nombreTicketTotal = nombreTicketTotal;
+    }
+
+    public Double getNombreTicketRestant() {
+        return nombreTicketRestant;
+    }
+
+    public void setNombreTicketRestant(Double nombreTicketRestant) {
+        this.nombreTicketRestant = nombreTicketRestant;
     }
 
     public Long getProjectionId() {
@@ -85,14 +82,6 @@ public class TicketDTO implements Serializable {
 
     public void setProjectionId(Long projectionId) {
         this.projectionId = projectionId;
-    }
-
-    public Long getReservationId() {
-        return reservationId;
-    }
-
-    public void setReservationId(Long reservationId) {
-        this.reservationId = reservationId;
     }
 
     @Override
@@ -120,10 +109,11 @@ public class TicketDTO implements Serializable {
     public String toString() {
         return "TicketDTO{" +
             "id=" + getId() +
-            ", codePaiement='" + getCodePaiement() + "'" +
-            ", numeroPlace='" + getNumeroPlace() + "'" +
             ", prix=" + getPrix() +
-            ", statutTicket='" + isStatutTicket() + "'" +
+            ", statutDisponibilite='" + isStatutDisponibilite() + "'" +
+            ", typePlace='" + getTypePlace() + "'" +
+            ", nombreTicketTotal=" + getNombreTicketTotal() +
+            ", nombreTicketRestant=" + getNombreTicketRestant() +
             "}";
     }
 }

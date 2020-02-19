@@ -8,17 +8,13 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity Ticket and its DTO TicketDTO.
  */
-@Mapper(componentModel = "spring", uses = {PrixTicketMapper.class, ProjectionMapper.class, ReservationMapper.class})
+@Mapper(componentModel = "spring", uses = {ProjectionMapper.class})
 public interface TicketMapper extends EntityMapper<TicketDTO, Ticket> {
 
-    @Mapping(source = "prixTicket.id", target = "prixTicketId")
     @Mapping(source = "projection.id", target = "projectionId")
-    @Mapping(source = "reservation.id", target = "reservationId")
     TicketDTO toDto(Ticket ticket);
 
-    @Mapping(source = "prixTicketId", target = "prixTicket")
     @Mapping(source = "projectionId", target = "projection")
-    @Mapping(source = "reservationId", target = "reservation")
     Ticket toEntity(TicketDTO ticketDTO);
 
     default Ticket fromId(Long id) {

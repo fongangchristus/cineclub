@@ -58,6 +58,9 @@ public class ReservationResourceIntTest {
     private static final Boolean DEFAULT_STATUT_RESERVATION = false;
     private static final Boolean UPDATED_STATUT_RESERVATION = true;
 
+    private static final String DEFAULT_CODE = "AAAAAAAAAA";
+    private static final String UPDATED_CODE = "BBBBBBBBBB";
+
     @Autowired
     private ReservationRepository reservationRepository;
 
@@ -106,7 +109,8 @@ public class ReservationResourceIntTest {
             .dateReservation(DEFAULT_DATE_RESERVATION)
             .quantite(DEFAULT_QUANTITE)
             .prixToTale(DEFAULT_PRIX_TO_TALE)
-            .statutReservation(DEFAULT_STATUT_RESERVATION);
+            .statutReservation(DEFAULT_STATUT_RESERVATION)
+            .code(DEFAULT_CODE);
         return reservation;
     }
 
@@ -136,6 +140,7 @@ public class ReservationResourceIntTest {
         assertThat(testReservation.getQuantite()).isEqualTo(DEFAULT_QUANTITE);
         assertThat(testReservation.getPrixToTale()).isEqualTo(DEFAULT_PRIX_TO_TALE);
         assertThat(testReservation.isStatutReservation()).isEqualTo(DEFAULT_STATUT_RESERVATION);
+        assertThat(testReservation.getCode()).isEqualTo(DEFAULT_CODE);
     }
 
     @Test
@@ -211,7 +216,8 @@ public class ReservationResourceIntTest {
             .andExpect(jsonPath("$.[*].dateReservation").value(hasItem(DEFAULT_DATE_RESERVATION.toString())))
             .andExpect(jsonPath("$.[*].quantite").value(hasItem(DEFAULT_QUANTITE)))
             .andExpect(jsonPath("$.[*].prixToTale").value(hasItem(DEFAULT_PRIX_TO_TALE.doubleValue())))
-            .andExpect(jsonPath("$.[*].statutReservation").value(hasItem(DEFAULT_STATUT_RESERVATION.booleanValue())));
+            .andExpect(jsonPath("$.[*].statutReservation").value(hasItem(DEFAULT_STATUT_RESERVATION.booleanValue())))
+            .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE.toString())));
     }
 
     @Test
@@ -229,7 +235,8 @@ public class ReservationResourceIntTest {
             .andExpect(jsonPath("$.dateReservation").value(DEFAULT_DATE_RESERVATION.toString()))
             .andExpect(jsonPath("$.quantite").value(DEFAULT_QUANTITE))
             .andExpect(jsonPath("$.prixToTale").value(DEFAULT_PRIX_TO_TALE.doubleValue()))
-            .andExpect(jsonPath("$.statutReservation").value(DEFAULT_STATUT_RESERVATION.booleanValue()));
+            .andExpect(jsonPath("$.statutReservation").value(DEFAULT_STATUT_RESERVATION.booleanValue()))
+            .andExpect(jsonPath("$.code").value(DEFAULT_CODE.toString()));
     }
 
     @Test
@@ -256,7 +263,8 @@ public class ReservationResourceIntTest {
             .dateReservation(UPDATED_DATE_RESERVATION)
             .quantite(UPDATED_QUANTITE)
             .prixToTale(UPDATED_PRIX_TO_TALE)
-            .statutReservation(UPDATED_STATUT_RESERVATION);
+            .statutReservation(UPDATED_STATUT_RESERVATION)
+            .code(UPDATED_CODE);
         ReservationDTO reservationDTO = reservationMapper.toDto(updatedReservation);
 
         restReservationMockMvc.perform(put("/api/reservations")
@@ -273,6 +281,7 @@ public class ReservationResourceIntTest {
         assertThat(testReservation.getQuantite()).isEqualTo(UPDATED_QUANTITE);
         assertThat(testReservation.getPrixToTale()).isEqualTo(UPDATED_PRIX_TO_TALE);
         assertThat(testReservation.isStatutReservation()).isEqualTo(UPDATED_STATUT_RESERVATION);
+        assertThat(testReservation.getCode()).isEqualTo(UPDATED_CODE);
     }
 
     @Test

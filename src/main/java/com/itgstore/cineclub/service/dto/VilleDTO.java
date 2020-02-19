@@ -21,6 +21,9 @@ public class VilleDTO implements Serializable {
 
     private Long paysId;
 
+    private String paysLibele;
+
+
     public Long getId() {
         return id;
     }
@@ -51,6 +54,14 @@ public class VilleDTO implements Serializable {
 
     public void setPaysId(Long paysId) {
         this.paysId = paysId;
+    }
+
+    public String getPaysLibele() {
+        return paysLibele;
+    }
+
+    public void setPaysLibele(String paysLibele) {
+        this.paysLibele = paysLibele;
     }
 
     @Override

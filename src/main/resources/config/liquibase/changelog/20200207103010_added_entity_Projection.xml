@@ -49,16 +49,23 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="plage_horaire_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
             <column name="salle_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
+        
+        <createTable tableName="projection_liste_seances">
+            <column name="liste_seances_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="projections_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="projections_id, liste_seances_id" tableName="projection_liste_seances"/>
         
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->

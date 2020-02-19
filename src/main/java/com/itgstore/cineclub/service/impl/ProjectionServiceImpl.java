@@ -69,7 +69,7 @@ public class ProjectionServiceImpl implements ProjectionService {
     @Transactional(readOnly = true)
     public ProjectionDTO findOne(Long id) {
         log.debug("Request to get Projection : {}", id);
-        Projection projection = projectionRepository.findOne(id);
+        Projection projection = projectionRepository.findOneWithEagerRelationships(id);
         return projectionMapper.toDto(projection);
     }
 

@@ -59,7 +59,7 @@
                 pageTitle: 'cineclubApp.seance.detail.title'
             },
             views: {
-                'content@app': {
+                'content@': {
                     templateUrl: 'app/entities/seance/seance-detail.html',
                     controller: 'SeanceDetailController',
                     controllerAs: 'vm'

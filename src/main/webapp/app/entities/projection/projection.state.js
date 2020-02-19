@@ -61,7 +61,7 @@
                 pageTitle: 'cineclubApp.projection.detail.title'
             },
             views: {
-                'content@app': {
+                'content@': {
                     templateUrl: 'app/entities/projection/projection-detail.html',
                     controller: 'ProjectionDetailController',
                     controllerAs: 'vm'

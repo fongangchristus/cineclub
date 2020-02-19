@@ -26,7 +26,7 @@ public class Client implements Serializable {
     @Column(name = "code")
     private String code;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "varchar")
     private String description;
 
     @OneToOne

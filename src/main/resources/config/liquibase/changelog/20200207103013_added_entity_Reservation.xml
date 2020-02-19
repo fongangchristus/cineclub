@@ -41,6 +41,12 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="ticket_id" type="bigint">
+                <constraints unique="true" nullable="true" />
+            </column>
             <column name="client_id" type="bigint">
                 <constraints nullable="true" />
             </column>

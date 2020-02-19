@@ -5,9 +5,9 @@
         .module('cineclubApp')
         .controller('ReservationDialogController', ReservationDialogController);
 
-    ReservationDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Reservation', 'Ticket', 'Client'];
+    ReservationDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Reservation', 'Ticket', 'TicketReserve', 'Client'];
 
-    function ReservationDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Reservation, Ticket, Client) {
+    function ReservationDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Reservation, Ticket, TicketReserve, Client) {
         var vm = this;
 
         vm.reservation = entity;
@@ -15,7 +15,16 @@
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
         vm.save = save;
-        vm.tickets = Ticket.query();
+        vm.tickets = Ticket.query({filter: 'reservation-is-null'});
+        $q.all([vm.reservation.$promise, vm.tickets.$promise]).then(function() {
+            if (!vm.reservation.ticketId) {
+                return $q.reject();
+            }
+            return Ticket.get({id : vm.reservation.ticketId}).$promise;
+        }).then(function(ticket) {
+            vm.tickets.push(ticket);
+        });
+        vm.ticketreserves = TicketReserve.query();
         vm.clients = Client.query();
 
         $timeout(function (){

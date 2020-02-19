@@ -2,10 +2,18 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-many",
-            "relationshipName": "listTicket",
+            "relationshipType": "one-to-one",
+            "relationshipName": "ticket",
             "otherEntityName": "ticket",
+            "otherEntityField": "id",
+            "ownerSide": true,
             "otherEntityRelationshipName": "reservation"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "listTicketReserve",
+            "otherEntityName": "ticketReserve",
+            "otherEntityRelationshipName": "ticketReserve"
         },
         {
             "relationshipType": "many-to-one",
@@ -40,6 +48,10 @@
         {
             "fieldName": "statutReservation",
             "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20200207103013",

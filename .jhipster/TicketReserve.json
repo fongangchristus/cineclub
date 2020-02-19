@@ -1,0 +1,54 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "reservation",
+            "otherEntityName": "reservation",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "codePaiement",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numeroPlace",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "prix",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "statutTicket",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "typePlace",
+            "fieldType": "TypePlace",
+            "fieldValues": "BALCON,CLASSIQUE"
+        },
+        {
+            "fieldName": "codeSup",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20200207103012",
+    "entityTableName": "ticket",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}
+

@@ -17,7 +17,7 @@
                 pageTitle: 'cineclubApp.reservation.home.title'
             },
             views: {
-                'content@app': {
+                'content@': {
                     templateUrl: 'app/entities/reservation/reservations.html',
                     controller: 'ReservationController',
                     controllerAs: 'vm'
@@ -59,7 +59,7 @@
                 pageTitle: 'cineclubApp.reservation.detail.title'
             },
             views: {
-                'content@app': {
+                'content@': {
                     templateUrl: 'app/entities/reservation/reservation-detail.html',
                     controller: 'ReservationDetailController',
                     controllerAs: 'vm'
@@ -129,6 +129,7 @@
                                 quantite: null,
                                 prixToTale: null,
                                 statutReservation: null,
+                                code: null,
                                 id: null
                             };
                         }

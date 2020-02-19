@@ -1,6 +1,5 @@
 package com.itgstore.cineclub.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -47,15 +46,14 @@ public class Projection implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @OneToMany(mappedBy = "projection")
-    @JsonIgnore
-    private Set<PrixTicket> listPrixTickets = new HashSet<>();
-
     @ManyToOne
     private Film film;
 
-    @ManyToOne
-    private Seance plageHoraire;
+    @ManyToMany
+    @JoinTable(name = "projection_liste_seances",
+               joinColumns = @JoinColumn(name="projections_id", referencedColumnName="id"),
+               inverseJoinColumns = @JoinColumn(name="liste_seances_id", referencedColumnName="id"))
+    private Set<Seance> listeSeances = new HashSet<>();
 
     @ManyToOne
     private Salle salle;
@@ -147,31 +145,6 @@ public class Projection implements Serializable {
         this.description = description;
     }
 
-    public Set<PrixTicket> getListPrixTickets() {
-        return listPrixTickets;
-    }
-
-    public Projection listPrixTickets(Set<PrixTicket> prixTickets) {
-        this.listPrixTickets = prixTickets;
-        return this;
-    }
-
-    public Projection addListPrixTicket(PrixTicket prixTicket) {
-        this.listPrixTickets.add(prixTicket);
-        prixTicket.setProjection(this);
-        return this;
-    }
-
-    public Projection removeListPrixTicket(PrixTicket prixTicket) {
-        this.listPrixTickets.remove(prixTicket);
-        prixTicket.setProjection(null);
-        return this;
-    }
-
-    public void setListPrixTickets(Set<PrixTicket> prixTickets) {
-        this.listPrixTickets = prixTickets;
-    }
-
     public Film getFilm() {
         return film;
     }
@@ -185,17 +158,29 @@ public class Projection implements Serializable {
         this.film = film;
     }
 
-    public Seance getPlageHoraire() {
-        return plageHoraire;
+    public Set<Seance> getListeSeances() {
+        return listeSeances;
     }
 
-    public Projection plageHoraire(Seance seance) {
-        this.plageHoraire = seance;
+    public Projection listeSeances(Set<Seance> seances) {
+        this.listeSeances = seances;
         return this;
     }
 
-    public void setPlageHoraire(Seance seance) {
-        this.plageHoraire = seance;
+    public Projection addListeSeances(Seance seance) {
+        this.listeSeances.add(seance);
+        seance.getProjections().add(this);
+        return this;
+    }
+
+    public Projection removeListeSeances(Seance seance) {
+        this.listeSeances.remove(seance);
+        seance.getProjections().remove(this);
+        return this;
+    }
+
+    public void setListeSeances(Set<Seance> seances) {
+        this.listeSeances = seances;
     }
 
     public Salle getSalle() {

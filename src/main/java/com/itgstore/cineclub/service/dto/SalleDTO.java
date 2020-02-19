@@ -32,8 +32,11 @@ public class SalleDTO implements Serializable {
     private Long adresseId;
 
     private Long villeId;
+    private String villeLibele;
 
     private Long cinemaId;
+    private String cinemaLibele;
+
 
     public Long getId() {
         return id;
@@ -121,6 +124,22 @@ public class SalleDTO implements Serializable {
 
     public void setCinemaId(Long cinemaId) {
         this.cinemaId = cinemaId;
+    }
+
+    public String getVilleLibele() {
+        return villeLibele;
+    }
+
+    public void setVilleLibele(String villeLibele) {
+        this.villeLibele = villeLibele;
+    }
+
+    public String getCinemaLibele() {
+        return cinemaLibele;
+    }
+
+    public void setCinemaLibele(String cinemaLibele) {
+        this.cinemaLibele = cinemaLibele;
     }
 
     @Override

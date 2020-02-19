@@ -62,7 +62,19 @@
                 <input type="checkbox" name="statutReservation" id="field_statutReservation"
                           ng-model="vm.reservation.statutReservation"/>
         </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="cineclubApp.reservation.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                    ng-model="vm.reservation.code"
+                    />
+        </div>
 
+        <div class="form-group">
+            <label data-translate="cineclubApp.reservation.ticket" for="field_ticket">Ticket</label>
+            <select class="form-control" id="field_ticket" name="ticket" ng-model="vm.reservation.ticketId" ng-options="ticket.id as ticket.id for ticket in vm.tickets | orderBy:'id'">
+                <option value=""></option>
+            </select>
+        </div>
         <div class="form-group">
             <label data-translate="cineclubApp.reservation.client" for="field_client">Client</label>
             <select class="form-control" id="field_client" name="client" ng-model="vm.reservation.clientId" ng-options="client.id as client.id for client in vm.clients"            >

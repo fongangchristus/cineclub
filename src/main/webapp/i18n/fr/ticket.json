@@ -16,13 +16,12 @@
             "detail": {
                 "title": "Ticket"
             },
-            "codePaiement": "Code Paiement",
-            "numeroPlace": "Numero Place",
             "prix": "Prix",
-            "statutTicket": "Statut Ticket",
-            "prixTicket": "Prix Ticket",
-            "projection": "Projection",
-            "reservation": "Reservation"
+            "statutDisponibilite": "Statut Disponibilite",
+            "typePlace": "Type Place",
+            "nombreTicketTotal": "Nombre Ticket Total",
+            "nombreTicketRestant": "Nombre Ticket Restant",
+            "projection": "Projection"
         }
     }
 }

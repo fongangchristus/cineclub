@@ -29,7 +29,7 @@ public class ProjectionDTO implements Serializable {
 
     private Long filmId;
 
-    private Long plageHoraireId;
+    private Set<SeanceDTO> listeSeances = new HashSet<>();
 
     private Long salleId;
 
@@ -97,12 +97,12 @@ public class ProjectionDTO implements Serializable {
         this.filmId = filmId;
     }
 
-    public Long getPlageHoraireId() {
-        return plageHoraireId;
+    public Set<SeanceDTO> getListeSeances() {
+        return listeSeances;
     }
 
-    public void setPlageHoraireId(Long seanceId) {
-        this.plageHoraireId = seanceId;
+    public void setListeSeances(Set<SeanceDTO> seances) {
+        this.listeSeances = seances;
     }
 
     public Long getSalleId() {
