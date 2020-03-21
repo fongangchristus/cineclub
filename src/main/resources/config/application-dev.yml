@@ -165,5 +165,5 @@ diversconfig:
     url-activation-marchand: http://localhost:4200/
     upload_dir: ../uploads
     upload_dir_contrats: ../contrats
-    
+
 application:

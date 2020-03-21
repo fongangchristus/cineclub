@@ -49,7 +49,7 @@ public class Reservation implements Serializable {
     @JoinColumn(unique = true)
     private Ticket ticket;
 
-    @OneToMany(mappedBy = "ticketReserve")
+    @OneToMany(mappedBy = "reservation")
     @JsonIgnore
     private Set<TicketReserve> listTicketReserves = new HashSet<>();
 
@@ -167,13 +167,13 @@ public class Reservation implements Serializable {
 
     public Reservation addListTicketReserve(TicketReserve ticketReserve) {
         this.listTicketReserves.add(ticketReserve);
-        ticketReserve.setTicketReserve(this);
+        //ticketReserve.setTicketReserve(this);
         return this;
     }
 
     public Reservation removeListTicketReserve(TicketReserve ticketReserve) {
         this.listTicketReserves.remove(ticketReserve);
-        ticketReserve.setTicketReserve(null);
+        //ticketReserve.setTicketReserve(null);
         return this;
     }
 
